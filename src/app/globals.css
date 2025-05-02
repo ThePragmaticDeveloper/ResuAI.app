@@ -120,3 +120,17 @@
     @apply bg-background text-foreground;
   }
 }
+
+html {
+  font-size: 62.5%;
+}
+::-webkit-scrollbar {display: none}
+body {
+  
+  font-family: 'General Sans', sans-serif;
+  font-weight: 500;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
