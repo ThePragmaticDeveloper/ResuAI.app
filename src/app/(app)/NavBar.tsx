@@ -1,0 +1,55 @@
+'use client';
+
+import ThemeToggle from "@/components/ThemeToggle";
+import { Button } from "@/components/ui/button";
+import { UserButton } from "@clerk/nextjs";
+import { CreditCard, Plus } from "lucide-react";
+import Link from "next/link";
+import { dark } from '@clerk/themes';
+import { useTheme } from "next-themes";
+import Image from "next/image";
+
+export default function NavBar() {
+
+  const {theme} = useTheme();
+
+  return (
+    <header className='shadow-xs glass'>
+    <div className='mx-auto p-2 px-9 flex justify-between items-center'>
+      <Link href='/' className='flex items-center gap-0.5'>
+        <Image className="" src='/owl.png' alt='' width='26' height='26' />
+        <span className='text-xl font-medium tracking-tight'>ResuAI</span>
+      </Link>
+
+      <div className='flex items-center gap-4'>
+      <Button asChild>
+       <Link href="/resumes" className="flex gap-1 py-6 px-4 rounded-xl">
+        <Plus size={28} className="" strokeWidth="1" />
+        <span className="text-lg leading-tight">Dashboard</span>
+       </Link>
+      </Button>
+      <ThemeToggle />
+      <UserButton
+          appearance={{
+            baseTheme: theme === "dark" ? dark : undefined,
+            elements: {
+              avatarBox: {
+                width: 28,
+                height: 28,
+              },
+            },
+          }}
+        >
+          <UserButton.MenuItems>
+            <UserButton.Link
+              label="Billing"
+              labelIcon={<CreditCard className="size-4" />}
+              href="/billing"
+            />
+          </UserButton.MenuItems>
+        </UserButton>
+        </div>
+    </div>
+  </header>
+  )
+}

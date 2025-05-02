@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
+import { ThemeProvider } from "next-themes";
 
 
 export const metadata: Metadata = {
@@ -27,7 +28,14 @@ export default function RootLayout({
        />
       </head>
       <body>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem={true}
+        disableTransitionOnChange
+       >
         {children}
+        </ThemeProvider>
       </body>
     </html>
     </ClerkProvider>
