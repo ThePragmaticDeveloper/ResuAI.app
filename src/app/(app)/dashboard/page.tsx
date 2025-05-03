@@ -4,7 +4,8 @@ import { Metadata } from "next"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: 'Dashboard'
+  title: 'Dashboard',
+  description: 'Your dashboard for managing resumes.',
 }
 
 export default function DashboardPage() {
