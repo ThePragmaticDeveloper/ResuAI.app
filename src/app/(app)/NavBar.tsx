@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import ClerkUserButton from "./ClerkUserButton";
-import { Plus } from "lucide-react";
+import { LayoutDashboard, Plus } from "lucide-react";
 
 export default function NavBar() {
 
@@ -16,11 +16,11 @@ export default function NavBar() {
       </Link>
 
       <div className='flex items-center gap-4'>
-      <Button asChild>
-       <Link href="/dashboard" className="flex g-1 p-c py-6 px-4 rounded-xl shadow-lg">
-        <Plus className="plus-icon" strokeWidth={1} />
-        <span className="text-lg leading-tight">Dashboard</span>
-       </Link>
+      <Button asChild className="rounded-lg" size="lg">
+        <Link href="/dashboard" className="py-5.5">
+         <LayoutDashboard className="size-[1.3rem] mt-[-.2rem]" strokeWidth={1.2} />
+         <span className="text-lg relative right-1">Dashboard</span>
+        </Link>
       </Button>
       <ThemeToggle />
       <ClerkUserButton />
