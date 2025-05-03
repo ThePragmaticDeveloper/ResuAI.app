@@ -17,8 +17,8 @@ export default function NavBar() {
 
       <div className='flex items-center gap-4'>
       <Button asChild>
-       <Link href="/resumes" className="flex gap-1 py-6 px-4 rounded-xl">
-        <Plus size={28} className="" strokeWidth="1" />
+       <Link href="/dashboard" className="flex g-1 p-c py-6 px-4 rounded-xl shadow-lg">
+        <Plus className="plus-icon" strokeWidth={1} />
         <span className="text-lg leading-tight">Dashboard</span>
        </Link>
       </Button>
