@@ -1,17 +1,11 @@
-'use client';
-
 import ThemeToggle from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
-import { UserButton } from "@clerk/nextjs";
-import { CreditCard, Plus } from "lucide-react";
 import Link from "next/link";
-import { dark } from '@clerk/themes';
-import { useTheme } from "next-themes";
 import Image from "next/image";
+import ClerkUserButton from "./ClerkUserButton";
+import { Plus } from "lucide-react";
 
 export default function NavBar() {
-
-  const {theme} = useTheme();
 
   return (
     <header className='shadow-xs glass'>
@@ -29,26 +23,8 @@ export default function NavBar() {
        </Link>
       </Button>
       <ThemeToggle />
-      <UserButton
-          appearance={{
-            baseTheme: theme === "dark" ? dark : undefined,
-            elements: {
-              avatarBox: {
-                width: 28,
-                height: 28,
-              },
-            },
-          }}
-        >
-          <UserButton.MenuItems>
-            <UserButton.Link
-              label="Billing"
-              labelIcon={<CreditCard className="size-4" />}
-              href="/billing"
-            />
-          </UserButton.MenuItems>
-        </UserButton>
-        </div>
+      <ClerkUserButton />
+      </div>
     </div>
   </header>
   )
