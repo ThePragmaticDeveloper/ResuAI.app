@@ -25,6 +25,8 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar"
+import Link from "next/link"
+import Image from "next/image"
 
 // This is sample data.
 const data = {
@@ -159,9 +161,13 @@ const data = {
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
-      <SidebarHeader>
+      {/* <SidebarHeader>
         <TeamSwitcher teams={data.teams} />
-      </SidebarHeader>
+      </SidebarHeader> */}
+      <Link href='/' className='flex items-center gap-0.5 py-5 pl-2'>
+        <Image className="" src='/owl.png' alt='' width='26' height='26' />
+        <span className='text-xl font-medium tracking-tight'>ResuAI</span>
+      </Link>
       <SidebarContent>
         <NavMain items={data.navMain} />
         <NavProjects projects={data.projects} />
