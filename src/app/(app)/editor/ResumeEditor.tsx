@@ -15,9 +15,10 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
-import { LayoutDashboard } from "lucide-react"
+import { ArrowBigLeftDash, LayoutDashboard } from "lucide-react"
 import Link from "next/link"
 import ClerkUserButton from "../ClerkUserButton"
+import GeneralInfoForm from "./forms/GeneralInfoForm"
 
 
 export default function ResumeEditor() {
@@ -48,24 +49,34 @@ export default function ResumeEditor() {
           </div>
 
           <div className='flex items-center gap-4 px-4'>
-           <Button asChild className="rounded-lg" size="sm">
-             <Link href="/dashboard" className="py-5.5 px-4.5">
-              {/* <LayoutDashboard className="size-[1.3rem] mt-[-.2rem]" strokeWidth={1.2} /> */}
-              <span className="text-lg relative top-[1px]">Dashboard</span>
+           <Button asChild className="rounded-xl bg-gradient" size="sm">
+             <Link href="/dashboard" className="py-5.5 px-5">
+              <ArrowBigLeftDash className="size-[1.3rem] mt-[-.1rem]" strokeWidth={1.2} />
+              <span className="text-lg relative top-[1px] right-1">Dashboard</span>
              </Link>
            </Button>
            <ThemeToggle />
            <ClerkUserButton />
          </div>
         </header>
-        <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
+        <div className="flex flex-1 gap-4 p-4 pt-0">
+          <div className='w-1/3 overflow-y-auto md:w-1/3 p-10 shadow-sm'>
+           <GeneralInfoForm />
+          </div>
+          <div className='w-2/3 overflow-y-auto md:w-2/3 p-10 shadow-sm'>right</div>
+        </div>
+
+
+        {/* <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
           <div className="grid auto-rows-min gap-4 md:grid-cols-3">
             <div className="bg-muted/50 aspect-video rounded-xl" />
             <div className="bg-muted/50 aspect-video rounded-xl" />
             <div className="bg-muted/50 aspect-video rounded-xl" />
           </div>
           <div className="bg-muted/50 min-h-[100vh] flex-1 rounded-xl md:min-h-min" />
-        </div>
+        </div> */}
+
+
       </SidebarInset>
     </SidebarProvider>
   )

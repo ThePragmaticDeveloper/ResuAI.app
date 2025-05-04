@@ -55,7 +55,7 @@ export function NavMain({
                 <SidebarMenuSub>
                   {item.items?.map((subItem) => (
                     <SidebarMenuSubItem key={subItem.title}>
-                      <SidebarMenuSubButton asChild className="py-5.5 px-3">
+                      <SidebarMenuSubButton asChild className="py-5.5 px-3 rounded-lg">
                         <a href={subItem.url}>
                           <span className="text-lg">{subItem.title}</span>
                         </a>
