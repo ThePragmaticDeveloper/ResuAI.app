@@ -60,10 +60,10 @@ export default function ResumeEditor() {
          </div>
         </header>
         <div className="flex flex-1 gap-4 p-4 pt-0">
-          <div className='w-1/3 overflow-y-auto md:w-1/3 p-10 shadow-sm'>
+          <div className='w-1/3 overflow-y-auto md:w-1/3 p-10'>
            <GeneralInfoForm />
           </div>
-          <div className='w-2/3 overflow-y-auto md:w-2/3 p-10 shadow-sm'>right</div>
+          <div className='w-2/3 overflow-y-auto md:w-2/3 p-10'>right</div>
         </div>
 
 

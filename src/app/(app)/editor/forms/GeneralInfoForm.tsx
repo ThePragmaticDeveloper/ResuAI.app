@@ -28,7 +28,7 @@ export default function GeneralInfoForm() {
 
       <Form {...form}>
         <form
-          className="space-y-3"
+          className="space-y-5"
           onSubmit={form.handleSubmit((data) => {
             console.log(data);
           })}
@@ -52,7 +52,7 @@ export default function GeneralInfoForm() {
               <FormItem>
                 <FormLabel>Description</FormLabel>
                 <FormControl>
-                  <Input {...field} placeholder="description" />
+                  <Input {...field} placeholder="Description" />
                 </FormControl>
               </FormItem>
             )}
