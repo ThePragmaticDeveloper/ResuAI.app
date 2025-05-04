@@ -19,11 +19,11 @@ export default function GeneralInfoForm() {
 
   return (
     <div className="max-w-xl mx-auto space-y-6">
-      <div className="space-y-1 text-center">
-        <h2 className="text-2xl font-semibold">General Information</h2>
-        <p className="text-sm text-muted-foreground">
+      <div className="space-y-1">
+        <h2 className="text-3xl font-semibold">General Information</h2>
+        {/* <p className="text-sm text-muted-foreground">
           Fill out the general information for your resume.
-        </p>
+        </p> */}
       </div>
 
       <Form {...form}>

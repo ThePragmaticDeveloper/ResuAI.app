@@ -63,7 +63,7 @@ export default function ResumeEditor() {
           <div className='w-1/3 overflow-y-auto md:w-1/3 p-10'>
            <GeneralInfoForm />
           </div>
-          <div className='w-2/3 overflow-y-auto md:w-2/3 p-10'>right</div>
+          <div className='w-2/3 overflow-y-auto md:w-2/3 p-10'></div>
         </div>
 
 
