@@ -52,7 +52,7 @@ export default function ResumeEditor() {
            <Button asChild className="rounded-xl bg-gradient" size="sm">
              <Link href="/dashboard" className="py-5.5 px-5">
               <ArrowBigLeftDash className="size-[1.3rem] mt-[-.1rem]" strokeWidth={1.2} />
-              <span className="text-lg relative top-[1px] right-1">Dashboard</span>
+              <span className="text-lg relative right-1">Dashboard</span>
              </Link>
            </Button>
            <ThemeToggle />
