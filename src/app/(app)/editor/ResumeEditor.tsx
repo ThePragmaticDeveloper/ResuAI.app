@@ -55,8 +55,8 @@ export default function ResumeEditor() {
               <span className="text-lg relative right-1">Dashboard</span>
              </Link>
            </Button> */}
-           <ThemeToggle />
-           <ClerkUserButton />
+           {/* <ThemeToggle /> */}
+           {/* <ClerkUserButton /> */}
          </div>
         </header>
         <div className="flex flex-1 gap-4 p-4 pt-0">

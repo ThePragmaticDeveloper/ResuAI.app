@@ -194,7 +194,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       {/* <SidebarHeader>
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader> */}
-      <div className="flex items-center justify-between px-2 py-2.5">
+      <div className="flex items-center justify-between px-3 py-2.5 mb-6">
       <Link href='/' className='flex items-center gap-0.5'>
         <Image className="" src='/owl.png' alt='' width='26' height='26' />
         <span className='text-xl font-medium tracking-tight'>ResuAI</span>
@@ -202,7 +202,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <Button asChild variant={"link"} className="rounded-xl" size="sm">
         <Link href="/dashboard" className="py-5.5 px-5">
          <FaArrowLeftLong className="size-[1.3rem] mt-[-.1rem] text-muted-foreground" />
-         {/* <ArrowBigLeftDash className="size-[1.3rem] mt-[-.1rem]" strokeWidth={1.2} /> */}
          <span className="text-sm text-muted-foreground">Back to Dashboard</span>
         </Link>
       </Button>

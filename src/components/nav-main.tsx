@@ -23,7 +23,8 @@ export function NavMain({
 }: {
   items: {
     title: string
-    url: string
+    url: string,
+    imgUrl: string,
     icon?: LucideIcon
     isActive?: boolean
     items?: {
@@ -34,7 +35,7 @@ export function NavMain({
 }) {
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Platform</SidebarGroupLabel>
+      {/* <SidebarGroupLabel>Platform</SidebarGroupLabel> */}
       <SidebarMenu>
         {items.map((item) => (
           <Collapsible
@@ -46,7 +47,16 @@ export function NavMain({
             <SidebarMenuItem>
               <CollapsibleTrigger asChild>
                 <SidebarMenuButton tooltip={item.title} className="py-5.5 px-3 rounded-lg">
-                  {item.icon && <item.icon />}
+                  {/* {item.icon && <item.icon />} */}
+                  {item.imgUrl && (
+                    <img
+                      src={item.imgUrl}
+                      alt={item.title}
+                      width='16'
+                      height='16'
+                      className=""
+                    />
+                  )}
                   <span className="text-xl">{item.title}</span>
                   <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                 </SidebarMenuButton>
