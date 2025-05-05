@@ -194,7 +194,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       {/* <SidebarHeader>
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader> */}
-      <div className="flex items-center justify-between px-2 py-5">
+      <div className="flex items-center justify-between px-2 py-2.5">
       <Link href='/' className='flex items-center gap-0.5'>
         <Image className="" src='/owl.png' alt='' width='26' height='26' />
         <span className='text-xl font-medium tracking-tight'>ResuAI</span>
