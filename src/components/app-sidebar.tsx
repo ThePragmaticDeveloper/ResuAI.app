@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import {
+  ArrowBigLeftDash,
   AudioWaveform,
   BookOpen,
   Bot,
@@ -27,7 +28,8 @@ import {
 } from "@/components/ui/sidebar"
 import Link from "next/link"
 import Image from "next/image"
-
+import { Button } from "./ui/button"
+import { FaArrowLeftLong } from "react-icons/fa6";
 // This is sample data.
 const data = {
   user: {
@@ -54,8 +56,9 @@ const data = {
   ],
   navMain: [
     {
-      title: "Playground",
+      title: "Personal Info",
       url: "#",
+      imgUrl: '/user.png',
       icon: SquareTerminal,
       isActive: true,
       items: [
@@ -74,8 +77,9 @@ const data = {
       ],
     },
     {
-      title: "Models",
+      title: "Summary",
       url: "#",
+      imgUrl: '/writing_hand.png',
       icon: Bot,
       items: [
         {
@@ -93,8 +97,9 @@ const data = {
       ],
     },
     {
-      title: "Documentation",
+      title: "Work Experience",
       url: "#",
+      imgUrl: '/case.png',
       icon: BookOpen,
       items: [
         {
@@ -116,8 +121,33 @@ const data = {
       ],
     },
     {
-      title: "Settings",
+      title: "Education",
       url: "#",
+      imgUrl: '/cap.png',
+      icon: Settings2,
+      items: [
+        {
+          title: "General",
+          url: "#",
+        },
+        {
+          title: "Team",
+          url: "#",
+        },
+        {
+          title: "Billing",
+          url: "#",
+        },
+        {
+          title: "Limits",
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: "Skills",
+      url: "#",
+      imgUrl: '/skills.png',
       icon: Settings2,
       items: [
         {
@@ -164,10 +194,19 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       {/* <SidebarHeader>
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader> */}
-      <Link href='/' className='flex items-center gap-0.5 py-5 pl-2'>
+      <div className="flex items-center justify-between px-2 py-5">
+      <Link href='/' className='flex items-center gap-0.5'>
         <Image className="" src='/owl.png' alt='' width='26' height='26' />
         <span className='text-xl font-medium tracking-tight'>ResuAI</span>
       </Link>
+      <Button asChild variant={"link"} className="rounded-xl" size="sm">
+        <Link href="/dashboard" className="py-5.5 px-5">
+         <FaArrowLeftLong className="size-[1.3rem] mt-[-.1rem] text-muted-foreground" />
+         {/* <ArrowBigLeftDash className="size-[1.3rem] mt-[-.1rem]" strokeWidth={1.2} /> */}
+         <span className="text-sm text-muted-foreground">Back to Dashboard</span>
+        </Link>
+      </Button>
+      </div>
       <SidebarContent>
         <NavMain items={data.navMain} />
         {/* <NavProjects projects={data.projects} /> */}
