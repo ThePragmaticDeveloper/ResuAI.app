@@ -30,6 +30,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "./ui/button"
 import { FaArrowLeftLong } from "react-icons/fa6";
+import ThemeToggle from "./ThemeToggle"
 // This is sample data.
 const data = {
   user: {
@@ -194,23 +195,25 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       {/* <SidebarHeader>
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader> */}
-      <div className="flex items-center justify-between px-3 py-2.5 mb-6">
+      <div className="flex gap-2 items-center justify-between px-3 py-2.5 mb-6">
       <Link href='/' className='flex items-center gap-0.5'>
         <Image className="" src='/owl.png' alt='' width='26' height='26' />
         <span className='text-xl font-medium tracking-tight'>ResuAI</span>
       </Link>
-      <Button asChild variant={"link"} className="rounded-xl" size="sm">
+      <Button asChild variant={"link"} className="rounded-xl ml-auto" size="sm">
         <Link href="/dashboard" className="py-5.5 px-5">
          <FaArrowLeftLong className="size-[1.3rem] mt-[-.1rem] text-muted-foreground" />
-         <span className="text-sm text-muted-foreground">Back to Dashboard</span>
+         <span className="text-sm text-muted-foreground">Go to Dashboard</span>
         </Link>
       </Button>
+      <ThemeToggle />
       </div>
       <SidebarContent>
         <NavMain items={data.navMain} />
         {/* <NavProjects projects={data.projects} /> */}
       </SidebarContent>
       <SidebarFooter>
+        {/* <ThemeToggle /> */}
         <NavUser user={data.user} />
       </SidebarFooter>
       <SidebarRail />
