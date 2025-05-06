@@ -8,3 +8,16 @@ export const generalInfoSchema = z.object({
 })
 
 export type GeneralInfoValues = z.infer<typeof generalInfoSchema>;
+
+export const personalInfoSchema = z.object({
+  firstName: optionalString,
+  lastName: optionalString,
+  jobTitle: optionalString,
+  city: optionalString,
+  country: optionalString,
+  phone: optionalString,
+  email: optionalString,
+  // website: optionalString,
+})
+
+export type PersonalInfoValues = z.infer<typeof personalInfoSchema>;

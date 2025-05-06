@@ -21,9 +21,6 @@ export default function GeneralInfoForm() {
     <div className="max-w-xl mx-auto space-y-6">
       <div className="space-y-1">
         <h2 className="text-3xl">General Information</h2>
-        {/* <p className="text-sm text-muted-foreground">
-          Fill out the general information for your resume.
-        </p> */}
       </div>
 
       <Form {...form}>

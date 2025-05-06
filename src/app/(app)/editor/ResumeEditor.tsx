@@ -19,6 +19,7 @@ import { ArrowBigLeftDash, LayoutDashboard } from "lucide-react"
 import Link from "next/link"
 import ClerkUserButton from "../ClerkUserButton"
 import GeneralInfoForm from "./forms/GeneralInfoForm"
+import PersonalInfoForm from "./forms/PersonalInfoForm"
 
 
 export default function ResumeEditor() {
@@ -61,7 +62,7 @@ export default function ResumeEditor() {
         </header>
         <div className="flex flex-1 gap-4 p-4 pt-0">
           <div className='w-1/3 overflow-y-auto md:w-1/3 p-8.5'>
-           <GeneralInfoForm />
+           <PersonalInfoForm />
           </div>
           <div className='w-2/3 overflow-y-auto md:w-2/3 p-10'></div>
         </div>
