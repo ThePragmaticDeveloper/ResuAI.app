@@ -6,6 +6,7 @@ import {
   AudioWaveform,
   BookOpen,
   Bot,
+  ChevronLeft,
   Command,
   Frame,
   GalleryVerticalEnd,
@@ -200,16 +201,16 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <Image className="" src='/owl.png' alt='' width='26' height='26' />
         <span className='text-xl font-medium tracking-tight'>ResuAI</span>
       </Link>
-      <Button asChild variant={"link"} className="rounded-xl ml-auto" size="sm">
-        <Link href="/dashboard" className="py-5.5 px-5">
-         <FaArrowLeftLong className="size-[1.3rem] mt-[-.1rem] text-muted-foreground" />
-         <span className="text-sm text-muted-foreground">Go to Dashboard</span>
+      <Button asChild variant='link' className="rounded-xl ml-auto" size="sm">
+        <Link href="/dashboard" className="py-5.5">
+         <ChevronLeft className="size-[1.3rem] mt-[-.1rem] " />
+         <span className="text-lg relative right-1 ">Dashboard</span>
         </Link>
       </Button>
       <ThemeToggle />
       </div>
       <SidebarContent>
-        <NavMain items={data.navMain} />
+        <NavMain />
         {/* <NavProjects projects={data.projects} /> */}
       </SidebarContent>
       <SidebarFooter>

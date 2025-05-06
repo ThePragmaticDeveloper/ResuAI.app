@@ -1,3 +1,5 @@
+"use client"
+
 import { AppSidebar } from "@/components/app-sidebar"
 import ThemeToggle from "@/components/ThemeToggle"
 import {
@@ -20,9 +22,13 @@ import Link from "next/link"
 import ClerkUserButton from "../ClerkUserButton"
 import GeneralInfoForm from "./forms/GeneralInfoForm"
 import PersonalInfoForm from "./forms/PersonalInfoForm"
+import { useSearchParams } from "next/navigation"
 
 
 export default function ResumeEditor() {
+
+  const searchParams = useSearchParams();
+
   return (
     <SidebarProvider>
       <AppSidebar className="" />

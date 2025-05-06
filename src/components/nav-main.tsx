@@ -17,51 +17,52 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar"
+import { steps } from "@/app/(app)/editor/steps";
+import { set } from "zod";
+import { useState } from "react";
 
-export function NavMain({
-  items,
-}: {
-  items: {
-    title: string
-    url: string,
-    imgUrl: string,
-    icon?: LucideIcon
-    isActive?: boolean
-    items?: {
-      title: string
-      url: string
-    }[]
-  }[]
-}) {
+interface NavMainProps {
+  currentStep: string;
+  setCurrentStep: (step: string) => void;
+}
+
+export function NavMain() {
+
+  const [currentStep, setCurrentStep] = useState("");
+
   return (
     <SidebarGroup>
       {/* <SidebarGroupLabel>Platform</SidebarGroupLabel> */}
       <SidebarMenu>
-        {items.map((item) => (
+        {steps.map((step) => (
           <Collapsible
-            key={item.title}
+            key={step.key}
             asChild
-            defaultOpen={item.isActive}
+            // defaultOpen={item.isActive}
             className="group/collapsible"
           >
             <SidebarMenuItem>
               <CollapsibleTrigger asChild>
-                <SidebarMenuButton tooltip={item.title} className="py-5.5 px-3 rounded-lg">
-                  {/* {item.icon && <item.icon />} */}
-                  {item.imgUrl && (
+                <SidebarMenuButton
+                 tooltip={step.title}
+                 className="py-5.5 px-3 rounded-lg"
+                 onClick={() => setCurrentStep(step.key)}
+                 >
+                  
+                  {step.imgUrl && (
                     <img
-                      src={item.imgUrl}
-                      alt={item.title}
+                      src={step.imgUrl}
+                      alt={step.title}
                       width='16'
                       height='16'
                       className=""
                     />
                   )}
-                  <span className="text-xl">{item.title}</span>
+                  <span className="text-xl">{step.title}</span>
                   <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                 </SidebarMenuButton>
               </CollapsibleTrigger>
-              <CollapsibleContent>
+              {/* <CollapsibleContent>
                 <SidebarMenuSub>
                   {item.items?.map((subItem) => (
                     <SidebarMenuSubItem key={subItem.title}>
@@ -73,7 +74,7 @@ export function NavMain({
                     </SidebarMenuSubItem>
                   ))}
                 </SidebarMenuSub>
-              </CollapsibleContent>
+              </CollapsibleContent> */}
             </SidebarMenuItem>
           </Collapsible>
         ))}
