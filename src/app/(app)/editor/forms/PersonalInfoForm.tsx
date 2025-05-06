@@ -26,8 +26,6 @@ export default function PersonalInfoForm() {
     const {unsubscribe} = form.watch(async() => {
       const isValid = await form.trigger()
       if (!isValid) return
-
-      // update resume data
     })
 
     return unsubscribe
