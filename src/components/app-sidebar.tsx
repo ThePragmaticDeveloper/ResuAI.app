@@ -213,7 +213,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         {/* <NavProjects projects={data.projects} /> */}
       </SidebarContent>
       <SidebarFooter>
-        {/* <ThemeToggle /> */}
         <NavUser user={data.user} />
       </SidebarFooter>
       <SidebarRail />
