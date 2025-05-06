@@ -16,7 +16,7 @@ export const steps: {
   key: "summary",
   title: "Summary",
   imgUrl: "/writing_hand.png",
-  component: PersonalInfoForm,
+  component: GeneralInfoForm,
 }, {
   key: "work-experience",
   title: "Work Experience",

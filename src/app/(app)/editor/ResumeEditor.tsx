@@ -23,15 +23,27 @@ import ClerkUserButton from "../ClerkUserButton"
 import GeneralInfoForm from "./forms/GeneralInfoForm"
 import PersonalInfoForm from "./forms/PersonalInfoForm"
 import { useSearchParams } from "next/navigation"
+import { steps } from "./steps"
 
 
 export default function ResumeEditor() {
 
   const searchParams = useSearchParams();
+  const currentStep = searchParams.get('step') || steps[0].key;
+
+  const setCurrentStep = (key: string) => {
+    const newSearchParams = new URLSearchParams(searchParams)
+    newSearchParams.set('step', key);
+    window.history.pushState(null, "", `?${newSearchParams.toString()}`)
+  }
+
+  const FormComponent = steps.find(
+    (step) => step.key === currentStep
+  )?.component;
 
   return (
     <SidebarProvider>
-      <AppSidebar className="" />
+      <AppSidebar setCurrentStep={setCurrentStep} />
       <SidebarInset>
         <header className="flex h-16 shrink-0 items-center justify-between transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
           <div className="flex items-center gap-2 px-4">
@@ -68,7 +80,7 @@ export default function ResumeEditor() {
         </header>
         <div className="flex flex-1 gap-4 p-4 pt-0">
           <div className='w-1/3 overflow-y-auto md:w-1/3 p-8.5'>
-           <PersonalInfoForm />
+           {FormComponent && <FormComponent />}
           </div>
           <div className='w-2/3 overflow-y-auto md:w-2/3 p-10'></div>
         </div>

@@ -26,9 +26,9 @@ interface NavMainProps {
   setCurrentStep: (step: string) => void;
 }
 
-export function NavMain() {
+export function NavMain({setCurrentStep}: {setCurrentStep: (key: string) => void}) {
 
-  const [currentStep, setCurrentStep] = useState("");
+  // const [currentStep, setCurrentStep] = useState("");
 
   return (
     <SidebarGroup>
