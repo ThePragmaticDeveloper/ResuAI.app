@@ -2,7 +2,6 @@
 
 import * as React from "react"
 import {
-  ArrowBigLeftDash,
   AudioWaveform,
   BookOpen,
   Bot,
@@ -17,20 +16,20 @@ import {
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
-import { NavProjects } from "@/components/nav-projects"
+// import { NavProjects } from "@/components/nav-projects"
 import { NavUser } from "@/components/nav-user"
-import { TeamSwitcher } from "@/components/team-switcher"
+// import { TeamSwitcher } from "@/components/team-switcher"
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
-  SidebarHeader,
+  // SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "./ui/button"
-import { FaArrowLeftLong } from "react-icons/fa6";
+// import { FaArrowLeftLong } from "react-icons/fa6";
 import ThemeToggle from "./ThemeToggle"
 // This is sample data.
 const data = {

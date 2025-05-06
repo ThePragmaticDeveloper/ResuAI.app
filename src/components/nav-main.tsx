@@ -1,26 +1,25 @@
 "use client"
 
-import { ChevronRight, type LucideIcon } from "lucide-react"
+// import { ChevronRight, type LucideIcon } from "lucide-react"
 
 import {
   Collapsible,
-  CollapsibleContent,
+  // CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
 import {
   SidebarGroup,
-  SidebarGroupLabel,
+  // SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarMenuSub,
-  SidebarMenuSubButton,
-  SidebarMenuSubItem,
+  // SidebarMenuSub,
+  // SidebarMenuSubButton,
+  // SidebarMenuSubItem,
 } from "@/components/ui/sidebar"
 import { steps } from "@/app/(app)/editor/steps";
-import { set } from "zod";
-import { useState } from "react";
 import { NavMainProps } from "./app-sidebar";
+import { ChevronRight } from "lucide-react";
 
 // interface NavMainProps {
 //   currentStep: string;
