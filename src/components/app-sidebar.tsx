@@ -190,11 +190,15 @@ const data = {
   ],
 }
 
-type AppSidebarProps = React.ComponentProps<typeof Sidebar> & {
-  setCurrentStep: (key: string) => void;
-};
+export interface NavMainProps {
+  currentStep: string;
+  setCurrentStep: (step: string) => void;
+}
 
-export function AppSidebar({ setCurrentStep, ...props }: AppSidebarProps) {
+type AppSidebarProps = React.ComponentProps<typeof Sidebar> & NavMainProps
+
+export function AppSidebar({ currentStep, setCurrentStep, ...props }: AppSidebarProps) {
+  
   return (
     <Sidebar collapsible="icon" {...props}>
       {/* <SidebarHeader>
@@ -214,7 +218,7 @@ export function AppSidebar({ setCurrentStep, ...props }: AppSidebarProps) {
       <ThemeToggle />
       </div>
       <SidebarContent>
-        <NavMain setCurrentStep={setCurrentStep} />
+        <NavMain currentStep={currentStep} setCurrentStep={setCurrentStep} />
         {/* <NavProjects projects={data.projects} /> */}
       </SidebarContent>
       <SidebarFooter>

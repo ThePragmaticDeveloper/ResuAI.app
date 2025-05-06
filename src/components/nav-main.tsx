@@ -20,13 +20,14 @@ import {
 import { steps } from "@/app/(app)/editor/steps";
 import { set } from "zod";
 import { useState } from "react";
+import { NavMainProps } from "./app-sidebar";
 
-interface NavMainProps {
-  currentStep: string;
-  setCurrentStep: (step: string) => void;
-}
+// interface NavMainProps {
+//   currentStep: string;
+//   setCurrentStep: (step: string) => void;
+// }
 
-export function NavMain({setCurrentStep}: {setCurrentStep: (key: string) => void}) {
+export function NavMain({currentStep, setCurrentStep}: NavMainProps) {
 
   // const [currentStep, setCurrentStep] = useState("");
 
@@ -45,7 +46,9 @@ export function NavMain({setCurrentStep}: {setCurrentStep: (key: string) => void
               <CollapsibleTrigger asChild>
                 <SidebarMenuButton
                  tooltip={step.title}
-                 className="py-5.5 px-3 rounded-lg"
+                 className={`py-6 px-3 rounded-lg ${currentStep === step.key ? "activeSidebarBtn" : ""}`}
+                //  className={`py-5.5 px-3 rounded-lg ${currentStep === step.key ? "bg-primary text-primary-foreground" : ""}`}
+                //  className="py-5.5 px-3 rounded-lg"
                  onClick={() => setCurrentStep(step.key)}
                  >
                   
