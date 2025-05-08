@@ -61,10 +61,10 @@ export default function ResumeEditor() {
           </div>
         </header>
         <div className="flex flex-1 gap-4 p-4 pt-0">
-          <div className='w-1/3 overflow-y-auto md:w-1/3 p-8.5'>
+          <div className='overflow-y-auto md:w-[60rem] p-8.5'>
            {FormComponent && <FormComponent />}
           </div>
-          <div className='w-2/3 overflow-y-auto md:w-2/3 p-10'></div>
+          <div className='overflow-y-auto w-full p-10'></div>
         </div>
       </SidebarInset>
     </SidebarProvider>
