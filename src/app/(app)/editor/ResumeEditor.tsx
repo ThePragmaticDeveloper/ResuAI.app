@@ -74,7 +74,9 @@ export default function ResumeEditor() {
             />
            )}
           </div>
-          <div className='overflow-y-auto w-full p-10'></div>
+          <div className='overflow-y-auto w-full p-10'>
+            <pre>{JSON.stringify(resumeData, null, 2)}</pre>
+          </div>
         </div>
       </SidebarInset>
     </SidebarProvider>
