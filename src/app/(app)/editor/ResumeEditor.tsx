@@ -67,7 +67,12 @@ export default function ResumeEditor() {
         </header>
         <div className="flex flex-1 gap-4 p-4 pt-0">
           <div className='overflow-y-auto md:w-[60rem] p-8.5'>
-           {FormComponent && <FormComponent />}
+           {FormComponent && (
+            <FormComponent
+             resumeData={resumeData}
+             setResumeData={setResumeData} 
+            />
+           )}
           </div>
           <div className='overflow-y-auto w-full p-10'></div>
         </div>
