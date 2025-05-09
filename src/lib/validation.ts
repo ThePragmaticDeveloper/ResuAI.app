@@ -21,3 +21,13 @@ export const personalInfoSchema = z.object({
 })
 
 export type PersonalInfoValues = z.infer<typeof personalInfoSchema>;
+
+
+export const resumeSchema = z.object({
+  ...generalInfoSchema.shape,
+  ...personalInfoSchema.shape,
+})
+
+export type ResumeValues = z.infer<typeof resumeSchema> & {
+  resumeId?: string;
+};

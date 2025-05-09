@@ -17,12 +17,16 @@ import {
 import { AppSidebar } from "@/components/app-sidebar";
 import { useSearchParams } from "next/navigation"
 import { steps } from "./steps"
+import { ResumeValues } from "@/lib/validation";
+import { useState } from "react";
 
 
 export default function ResumeEditor() {
 
   const searchParams = useSearchParams();
   const currentStep = searchParams.get('step') || steps[0].key;
+
+  const [resumeData, setResumeData] = useState<ResumeValues>({});
 
   const setCurrentStep = (key: string) => {
     const newSearchParams = new URLSearchParams(searchParams)
@@ -33,6 +37,7 @@ export default function ResumeEditor() {
   const FormComponent = steps.find(
     (step) => step.key === currentStep
   )?.component;
+
 
   return (
     <SidebarProvider>
