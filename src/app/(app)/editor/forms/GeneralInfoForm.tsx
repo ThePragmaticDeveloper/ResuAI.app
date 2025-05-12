@@ -1,6 +1,6 @@
 "use client"
 
-import { generalInfoSchema, GeneralInfoValues } from "@/lib/validation";
+import { generalInfoSchema, GeneralInfoValues, ResumeValues } from "@/lib/validation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form";
@@ -18,15 +18,14 @@ export default function GeneralInfoForm({resumeData, setResumeData}: EditorFormP
     },
   });
   
-  useEffect(() => {
-      const {unsubscribe} = form.watch(async(values) => {
-        const isValid = await form.trigger()
-        if (!isValid) return
-        setResumeData({...resumeData, ...values})
-      });
-  
-      return unsubscribe
-    }, [form, setResumeData])
+  const handleInputChange = (fieldName: keyof GeneralInfoValues) => 
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      form.setValue(fieldName, e.target.value); // RHF state
+      setResumeData((prev) => ({
+        ...prev,
+        [fieldName]: e.target.value, // update parent state
+      }));
+    };
 
   return (
     <div className="max-w-xl mx-auto space-y-6">
@@ -37,6 +36,7 @@ export default function GeneralInfoForm({resumeData, setResumeData}: EditorFormP
       <Form {...form}>
         <form
           className="space-y-5"
+          onSubmit={(e) => e.preventDefault()}
         >
           <FormField
             control={form.control}
@@ -45,7 +45,11 @@ export default function GeneralInfoForm({resumeData, setResumeData}: EditorFormP
               <FormItem>
                 <FormLabel>Project Name</FormLabel>
                 <FormControl>
-                  <Input {...field} placeholder="Project Name" autoFocus />
+                  <Input
+                  {...field}
+                  // placeholder="Project Name"
+                  onChange={handleInputChange("title")}
+                  />
                 </FormControl>
               </FormItem>
             )}
@@ -57,7 +61,11 @@ export default function GeneralInfoForm({resumeData, setResumeData}: EditorFormP
               <FormItem>
                 <FormLabel>Description</FormLabel>
                 <FormControl>
-                  <Input {...field} placeholder="Description" />
+                  <Input
+                   {...field}
+                  //  placeholder="Description"
+                   onChange={handleInputChange("description")}
+                  />
                 </FormControl>
               </FormItem>
             )}
