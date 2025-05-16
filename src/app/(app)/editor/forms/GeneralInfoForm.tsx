@@ -10,7 +10,6 @@ import { EditorFormProps } from "@/lib/types";
 
 export default function GeneralInfoForm({resumeData, setResumeData}: EditorFormProps) {
 
-
   const form = useForm<GeneralInfoValues>({
     resolver: zodResolver(generalInfoSchema),
     defaultValues: {
@@ -48,7 +47,7 @@ export default function GeneralInfoForm({resumeData, setResumeData}: EditorFormP
               <FormItem>
                 <FormLabel>Project Name</FormLabel>
                 <FormControl>
-                  <Input autoFocus
+                  <Input
                   {...field}
                   // placeholder="Project Name"
                   // onChange={handleInputChange("title")}
