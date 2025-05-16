@@ -1,6 +1,6 @@
 "use client"
 
-import { generalInfoSchema, GeneralInfoValues, ResumeValues } from "@/lib/validation";
+import { generalInfoSchema, GeneralInfoValues } from "@/lib/validation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form";
@@ -10,6 +10,7 @@ import { EditorFormProps } from "@/lib/types";
 
 export default function GeneralInfoForm({resumeData, setResumeData}: EditorFormProps) {
 
+
   const form = useForm<GeneralInfoValues>({
     resolver: zodResolver(generalInfoSchema),
     defaultValues: {
@@ -17,16 +18,18 @@ export default function GeneralInfoForm({resumeData, setResumeData}: EditorFormP
       description: resumeData.description || "",
     },
   });
-  
-  const handleInputChange = (fieldName: keyof GeneralInfoValues) => 
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      form.setValue(fieldName, e.target.value); // RHF state
-      setResumeData((prev) => ({
-        ...prev,
-        [fieldName]: e.target.value, // update parent state
-      }));
-    };
 
+  useEffect(() => {
+   const subscription = form.watch((values) => {
+    setResumeData(prevData => ({
+      ...prevData,
+      ...values
+    }));
+   })
+   return () => subscription.unsubscribe()
+  }, [form.watch, setResumeData])
+  
+  
   return (
     <div className="max-w-xl mx-auto space-y-6">
       <div className="space-y-1">
@@ -45,10 +48,10 @@ export default function GeneralInfoForm({resumeData, setResumeData}: EditorFormP
               <FormItem>
                 <FormLabel>Project Name</FormLabel>
                 <FormControl>
-                  <Input
+                  <Input autoFocus
                   {...field}
                   // placeholder="Project Name"
-                  onChange={handleInputChange("title")}
+                  // onChange={handleInputChange("title")}
                   />
                 </FormControl>
               </FormItem>
@@ -64,7 +67,7 @@ export default function GeneralInfoForm({resumeData, setResumeData}: EditorFormP
                   <Input
                    {...field}
                   //  placeholder="Description"
-                   onChange={handleInputChange("description")}
+                  //  onChange={handleInputChange("description")}
                   />
                 </FormControl>
               </FormItem>

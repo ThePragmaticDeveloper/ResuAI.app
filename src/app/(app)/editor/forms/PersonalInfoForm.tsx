@@ -3,7 +3,7 @@
 import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { EditorFormProps } from '@/lib/types'
-import { personalInfoSchema, PersonalInfoValues, ResumeValues } from '@/lib/validation'
+import { personalInfoSchema, PersonalInfoValues } from '@/lib/validation'
 import { zodResolver } from '@hookform/resolvers/zod'
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
@@ -21,16 +21,17 @@ export default function PersonalInfoForm({resumeData, setResumeData}: EditorForm
       phone: resumeData.phone || "",
       email: resumeData.email || "",
     },
-  })
+  });
 
-  const handleInputChange = (fieldName: keyof PersonalInfoValues) => 
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      form.setValue(fieldName, e.target.value); // RHF state
-      setResumeData((prev) => ({
-        ...prev,
-        [fieldName]: e.target.value, // update parent state
-      }));
-    };
+  useEffect(() => {
+   const subscription = form.watch((values) => {
+    setResumeData(prevData => ({
+      ...prevData,
+      ...values
+    }));
+   })
+   return () => subscription.unsubscribe()
+  }, [form.watch, setResumeData])
 
   return (
     <div className="max-w-xl mx-auto space-y-6">
@@ -53,7 +54,6 @@ export default function PersonalInfoForm({resumeData, setResumeData}: EditorForm
                 <FormControl>
                   <Input
                   {...field}
-                  onChange={handleInputChange("firstName")}
                   />
                 </FormControl>
               </FormItem>
@@ -68,7 +68,6 @@ export default function PersonalInfoForm({resumeData, setResumeData}: EditorForm
                 <FormControl>
                   <Input
                   {...field}
-                  onChange={handleInputChange("lastName")}
                   />
                 </FormControl>
               </FormItem>
@@ -84,7 +83,6 @@ export default function PersonalInfoForm({resumeData, setResumeData}: EditorForm
                 <FormControl>
                   <Input
                    {...field}
-                   onChange={handleInputChange("jobTitle")}
                   />
                 </FormControl>
               </FormItem>
@@ -100,7 +98,6 @@ export default function PersonalInfoForm({resumeData, setResumeData}: EditorForm
                 <FormControl>
                   <Input
                    {...field}
-                    onChange={handleInputChange("city")}
                   />
                 </FormControl>
               </FormItem>
@@ -115,7 +112,6 @@ export default function PersonalInfoForm({resumeData, setResumeData}: EditorForm
                 <FormControl>
                   <Input
                    {...field}
-                   onChange={handleInputChange("country")}
                   />
                 </FormControl>
               </FormItem>
@@ -133,7 +129,6 @@ export default function PersonalInfoForm({resumeData, setResumeData}: EditorForm
                   <Input
                    {...field}
                    type='tel'
-                   onChange={handleInputChange("phone")}
                   />
                 </FormControl>
               </FormItem>
@@ -149,7 +144,6 @@ export default function PersonalInfoForm({resumeData, setResumeData}: EditorForm
                   <Input
                    {...field}
                    type='email'
-                   onChange={handleInputChange("email")}
                   />
                 </FormControl>
               </FormItem>
