@@ -19,6 +19,7 @@ import { useSearchParams } from "next/navigation"
 import { steps } from "./steps"
 import { ResumeValues } from "@/lib/validation";
 import { useState } from "react";
+import TitleForm from "./forms/TitleForm";
 
 
 export default function ResumeEditor() {
@@ -44,13 +45,14 @@ export default function ResumeEditor() {
       <AppSidebar currentStep={currentStep} setCurrentStep={setCurrentStep} />
       <SidebarInset>
         <header className="flex h-16 shrink-0 items-center justify-between transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
-          <div className="flex items-center gap-2 px-4">
-            <SidebarTrigger className="-ml-1" />
+          <div className="flex items-center gap-2 pl-12">
+            {/* <SidebarTrigger className="-ml-1" />
             <Separator
               orientation="vertical"
               className="mr-2 data-[orientation=vertical]:h-4"
-            />
-            <Breadcrumb>
+            /> */}
+            <TitleForm />
+            {/* <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem className="hidden md:block">
                   <BreadcrumbLink href="#">
@@ -62,7 +64,7 @@ export default function ResumeEditor() {
                   <BreadcrumbPage>Data Fetching</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
-            </Breadcrumb>
+            </Breadcrumb> */}
           </div>
         </header>
         <div className="flex flex-1 gap-4 p-4 pt-0">

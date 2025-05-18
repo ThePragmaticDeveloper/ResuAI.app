@@ -57,7 +57,7 @@ export default function WorkExperienceForm({resumeData, setResumeData}: EditorFo
           <div className="flex">
           <Button
             type="button"
-            className="flex py-5.5 px-4 gap-0 items-center rounded-lg"
+            className="flex py-5.5 px-4 gap-0 items-center rounded-lg bg-gradient"
             onClick={() =>
               append({
                 position: "",

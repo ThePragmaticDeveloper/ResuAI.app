@@ -142,8 +142,8 @@ body {
   background-image: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.5), rgba(120, 119, 198, 0.05), transparent);
 }
 .plus {
-  width: 2rem;
-  height: 2rem;
+  width: 1.8rem;
+  height: 1.8rem;
 }
 
 .bg-gradient {
