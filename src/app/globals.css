@@ -74,7 +74,7 @@
   --sidebar-primary: oklch(0.21 0.006 285.885);
   --sidebar-primary-foreground: oklch(0.985 0 0);
   /* --sidebar-accent: oklch(0.967 0.001 286.375); */
-  --sidebar-accent: hsl(239.99 4% 95%);
+  --sidebar-accent: hsl(239.99 4% 93%);
   --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
   --sidebar-border: oklch(0.92 0.004 286.32);
   --sidebar-ring: oklch(0.705 0.015 286.067);
@@ -140,6 +140,10 @@ body {
 .bg--gradient {
   /* background-image: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.3), transparent); */
   background-image: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.5), rgba(120, 119, 198, 0.05), transparent);
+}
+.plus {
+  width: 2rem;
+  height: 2rem;
 }
 
 .bg-gradient {

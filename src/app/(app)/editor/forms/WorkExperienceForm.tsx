@@ -57,7 +57,7 @@ export default function WorkExperienceForm({resumeData, setResumeData}: EditorFo
           <div className="flex">
           <Button
             type="button"
-            className="flex py-5.5 px-4 gap-0 items-center"
+            className="flex py-5.5 px-4 gap-0 items-center rounded-lg"
             onClick={() =>
               append({
                 position: "",
@@ -68,8 +68,8 @@ export default function WorkExperienceForm({resumeData, setResumeData}: EditorFo
               })
             }
           >
-            <Plus className="w-7 h-7 plus" strokeWidth=".6" />
-            <span className="text-[1rem] leading-tight">Add Work Experience</span>
+            <Plus className="plus relative right-1 bottom-[1px]" strokeWidth="1" />
+            <span className="text-[1rem] leading-tight relative right-1">Add Work Experience</span>
           </Button>
         </div>
           {/* <button type="button" onClick={() => append({ jobTitle: "", company: "" })}>Add Work Experience</button> */}
@@ -173,6 +173,14 @@ function WorkExperienceItem({form, index, remove}: WorkExperienceItemProps) {
       </FormItem>
      )}
     />
+    <Button
+     type="button"
+     variant="destructive"
+     className="text-[1rem] leading-tight flex py-5.5 px-4 gap-0 items-center rounded-lg"
+     onClick={() => remove(index)}
+    >
+      Remove
+      </Button>
    </div>
   )
 }
