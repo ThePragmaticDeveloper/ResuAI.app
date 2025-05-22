@@ -31,8 +31,15 @@ export default function GeneralInfoForm({resumeData, setResumeData}: EditorFormP
   
   return (
     <div className="max-w-xl mx-auto space-y-6">
-      <div className="space-y-1">
-        <h2 className="text-3xl">General Information</h2>
+      <div className="space-y-1 flex items-center gap-2">
+        <img
+          src="/writing_hand.png"
+          alt="summary"
+          width='24'
+          height='24'
+          className=""
+        />
+        <h2 className="text-3xl">Summary</h2>
       </div>
 
       <Form {...form}>

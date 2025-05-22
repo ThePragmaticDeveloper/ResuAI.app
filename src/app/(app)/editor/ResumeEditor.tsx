@@ -45,12 +45,12 @@ export default function ResumeEditor() {
       <AppSidebar currentStep={currentStep} setCurrentStep={setCurrentStep} />
       <SidebarInset>
         <header className="flex h-16 shrink-0 items-center justify-between transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
-          <div className="flex items-center gap-2 pl-12">
-            {/* <SidebarTrigger className="-ml-1" />
+          <div className="flex items-center gap-1 pl-12">
+            <SidebarTrigger className="-ml-1" />
             <Separator
               orientation="vertical"
-              className="mr-2 data-[orientation=vertical]:h-4"
-            /> */}
+              className="mr-1 data-[orientation=vertical]:h-4"
+            />
             <TitleForm />
             {/* <Breadcrumb>
               <BreadcrumbList>
@@ -75,6 +75,7 @@ export default function ResumeEditor() {
              setResumeData={setResumeData} 
             />
            )}
+           
           </div>
           <div className='overflow-y-auto w-full p-10'>
             <pre>{JSON.stringify(resumeData, null, 2)}</pre>

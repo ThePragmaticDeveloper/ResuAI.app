@@ -35,7 +35,14 @@ export default function PersonalInfoForm({resumeData, setResumeData}: EditorForm
 
   return (
     <div className="max-w-xl mx-auto space-y-6">
-      <div className="space-y-1">
+      <div className="space-y-1 flex items-center gap-2">
+        <img
+          src="/user.png"
+          alt="Personal Info"
+          width='24'
+          height='24'
+          className=""
+        />
         <h2 className="text-3xl">Personal Info</h2>
       </div>
 

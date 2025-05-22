@@ -1,3 +1,4 @@
+import FileSvg from '@/components/file-svg';
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { generalInfoSchema, GeneralInfoValues } from '@/lib/validation';
@@ -30,12 +31,15 @@ export default function TitleForm() {
                 <FormItem>
                   {/* <FormLabel>Project Name</FormLabel> */}
                   <FormControl>
+                    {/* <div className='flex items-center gap-2'> */}
+                    {/* <FileSvg /> */}
                     <Input
                     {...field}
                     placeholder="Project Name"
                     className="w-[30rem] text-xl! shadow-none outline-none border-none focus-visible:ring-0 focus-visible:border-none px-0 bg-transparent!"
                     // onChange={handleInputChange("title")}
                     />
+                    {/* </div> */}
                   </FormControl>
                 </FormItem>
               )}

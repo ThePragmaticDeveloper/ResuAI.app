@@ -37,7 +37,14 @@ export default function WorkExperienceForm({resumeData, setResumeData}: EditorFo
 
   return (
     <div className="max-w-xl mx-auto space-y-6">
-      <div className="space-y-1">
+      <div className="space-y-1 flex items-center gap-2">
+        <img
+          src="/case.png"
+          alt="Work Experience"
+          width='24'
+          height='24'
+          className=""
+        />
         <h2 className="text-3xl">Work Experience</h2>
       </div>
 
@@ -68,7 +75,7 @@ export default function WorkExperienceForm({resumeData, setResumeData}: EditorFo
               })
             }
           >
-            <Plus className="plus relative right-1 bottom-[1px]" strokeWidth="1" />
+            <Plus className="plus relative right-1 bottom-[1px]" strokeWidth="1.5" />
             <span className="text-[1rem] leading-tight relative right-1">Add Work Experience</span>
           </Button>
         </div>
