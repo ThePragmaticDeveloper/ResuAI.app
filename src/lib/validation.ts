@@ -38,10 +38,24 @@ export const workExperienceSchema = z.object({
 
 export type WorkExperienceValues = z.infer<typeof workExperienceSchema>;
 
+export const educationSchema = z.object({
+  educations: z.array(
+    z.object({
+      schoolName: optionalString,
+      degree: optionalString,
+      startDate: optionalString,
+      endDate: optionalString,
+    })
+  ).optional(),
+})
+
+export type EducationValues = z.infer<typeof educationSchema>;
+
 export const resumeSchema = z.object({
   ...generalInfoSchema.shape,
   ...personalInfoSchema.shape,
   ...workExperienceSchema.shape,
+  ...educationSchema.shape,
 })
 
 export type ResumeValues = z.infer<typeof resumeSchema> & {
