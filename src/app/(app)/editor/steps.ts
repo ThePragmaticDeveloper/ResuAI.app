@@ -3,6 +3,7 @@ import GeneralInfoForm from "./forms/GeneralInfoForm";
 import PersonalInfoForm from "./forms/PersonalInfoForm";
 import WorkExperienceForm from "./forms/WorkExperienceForm";
 import EducationForm from "./forms/EducationForm";
+import SkillsForm from "./forms/SkillsForm";
 
 
 export const steps: {
@@ -34,5 +35,5 @@ export const steps: {
   key: "skills",
   title: "Skills",
   imgUrl: "/skills.png",
-  component: PersonalInfoForm,
+  component: SkillsForm,
 }]
