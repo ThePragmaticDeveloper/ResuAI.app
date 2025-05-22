@@ -66,7 +66,7 @@ export default function SkillsForm({
                   }}
                 />
               </FormControl>
-              <FormDescription>
+              <FormDescription className="mt-2">
                 Separate each skill with a comma
               </FormDescription>
               <FormMessage />
