@@ -20,6 +20,7 @@ import { steps } from "./steps"
 import { ResumeValues } from "@/lib/validation";
 import { useState } from "react";
 import TitleForm from "./forms/TitleForm";
+import ResumePreviewSection from "./ResumePreviewSection";
 
 
 export default function ResumeEditor() {
@@ -77,9 +78,13 @@ export default function ResumeEditor() {
            )}
            
           </div>
-          <div className='overflow-y-auto w-full p-10'>
+          <ResumePreviewSection
+            resumeData={resumeData}
+            setResumeData={setResumeData}
+          />
+          {/* <div className='overflow-y-auto w-full p-10'>
             <pre>{JSON.stringify(resumeData, null, 2)}</pre>
-          </div>
+          </div> */}
         </div>
       </SidebarInset>
     </SidebarProvider>
