@@ -1,3 +1,4 @@
+import ResumePreview from "@/components/ResumePreview"
 import { ResumeValues } from "@/lib/validation"
 
 interface ResumePreviewSectionProps {
@@ -10,7 +11,9 @@ export default function ResumePreviewSection({resumeData, setResumeData}: Resume
   
   return (
     <div className="hidden w-1/2 md:flex">
-      <h1>Resume Preview Section</h1>
+      {/* <div className="flex w-full justify-center overflow-y-auto bg-secondary p-2"> */}
+        <ResumePreview className="shadow-md" resumeData={resumeData} />
+      {/* </div> */}
     </div>
   )
 }

@@ -45,7 +45,7 @@ export default function ResumeEditor() {
     <SidebarProvider>
       <AppSidebar currentStep={currentStep} setCurrentStep={setCurrentStep} />
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center justify-between transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
+        <header className="flex h-12 shrink-0 items-center justify-between transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
           <div className="flex items-center gap-1 pl-12">
             <SidebarTrigger className="-ml-1" />
             <Separator
@@ -53,7 +53,7 @@ export default function ResumeEditor() {
               className="mr-1 data-[orientation=vertical]:h-4"
             />
             <TitleForm />
-            {/* <Breadcrumb>
+            <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem className="hidden md:block">
                   <BreadcrumbLink href="#">
@@ -65,7 +65,7 @@ export default function ResumeEditor() {
                   <BreadcrumbPage>Data Fetching</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
-            </Breadcrumb> */}
+            </Breadcrumb>
           </div>
         </header>
         <div className="flex flex-1 gap-4 p-4 pt-0">
