@@ -17,7 +17,9 @@ export default function useDimensions<T extends HTMLElement>(
       };
     }
 
-    const resizeObserver = new ResizeObserver(() => {
+    const resizeObserver = new ResizeObserver((entries) => {
+      const entry = entries[0];
+      if (!entry) return; // Ensure entry exists
       setDimensions(getDimensions());
     });
 
