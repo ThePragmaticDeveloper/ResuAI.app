@@ -17,10 +17,10 @@ export default function ResumePreviewPaper({resumeData, className}: ResumePrevie
   return (
     <div
      ref={containerRef}
-     className={cn("bg-white text-black h-fit w-full aspect-[210/297]", className)}
+     className={cn("bg-white h-fit w-full aspect-[210/297]", className)}
     >
       <div
-        className={cn("space-y-6 p-6", !width && "invisible")}
+        className={cn("space-y-10 py-12 px-24 text-[#1a1a1a] font-medium", !width && "invisible")}
         style={{
           zoom: (1 / 794) * width,
         }}
@@ -28,6 +28,14 @@ export default function ResumePreviewPaper({resumeData, className}: ResumePrevie
         id="resumePreviewContent"
       >
        <PersonalInfoHeader resumeData={resumeData} />
+       <SummarySection resumeData={resumeData} />
+        {/* Add more sections as needed */}
+        {/* Example: */}
+        {/* <ExperienceSection resumeData={resumeData} /> */}
+        {/* <EducationSection resumeData={resumeData} /> */}
+        {/* <SkillsSection resumeData={resumeData} /> */}
+  
+        {/* Uncomment to test responsive text size */}
       {/* <h1 className="text-5xl font-bold text-center text-black">
         This text should change with the size of the container div
       </h1> */}
@@ -52,16 +60,16 @@ function PersonalInfoHeader({ resumeData }: ResumeSectionProps) {
   } = resumeData;
 
   return (
-    <div className="flex items-center text-[#1a1a1a] gap-6 justify-center pt-6">
+    <div className="flex items-center gap-6 justify-center pt-6">
       <div className="space-y-1">
         <p className="text-5xl text-center">
           {firstName} {lastName}
         </p>
         <div className="flex items-center gap-2">
-        <p className="text-2xl font-medium">
+        <p className="text-2xl">
           {jobTitle}
         </p>
-        <p className="text-2xl font-medium">
+        <p className="text-2xl">
           {city}
           {city && country ? ", " : ""}
           {country}
@@ -70,6 +78,22 @@ function PersonalInfoHeader({ resumeData }: ResumeSectionProps) {
         </p>
       </div>
       </div>
+    </div>
+  );
+}
+
+function SummarySection({ resumeData }: ResumeSectionProps) {
+  const { summary } = resumeData;
+
+  if (!summary) return null;
+
+  return (
+    <div className="break-inside-avoid space-y-1">
+      <p className="text-3xl">
+        Professional Summary
+      </p>
+      <hr className="border-1 mb-3" />
+      <div className="whitespace-pre-line text-2xl">{summary}</div>
     </div>
   );
 }
