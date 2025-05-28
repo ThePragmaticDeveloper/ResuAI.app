@@ -15,7 +15,7 @@ export default function ResumePreviewSection({resumeData, className}: ResumePrev
     <div
       className={cn("hidden overflow-y-auto w-full md:flex md:w-2/3 bg-container", className)}
     >
-     <div className="flex w-full h-fit justify-center p-2">
+     <div className="flex w-full h-fit justify-center p-2 py-6">
         <ResumePreviewPaper
           resumeData={resumeData}
           className="shadow-md"
