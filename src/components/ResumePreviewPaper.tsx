@@ -18,7 +18,7 @@ export default function ResumePreviewPaper({resumeData, className}: ResumePrevie
   return (
     <div
      ref={containerRef}
-     className={cn("bg-white h-fit w-full aspect-[210/297]", className)}
+     className={cn("bg-white rounded-xs h-fit w-full aspect-[210/297]", className)}
     >
       <div
         className={cn("space-y-10 py-12 px-20 text-[#1a1a1a] font-medium", !width && "invisible")}

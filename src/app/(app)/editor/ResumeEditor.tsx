@@ -11,6 +11,7 @@ import { ResumeValues } from "@/lib/validation";
 import { useState } from "react";
 import ResumePreviewSection from "./ResumePreviewSection";
 import ResumeEditorHeader from "./ResumeEditorHeader";
+import { cn } from "@/lib/utils";
 
 
 export default function ResumeEditor() {
@@ -19,6 +20,7 @@ export default function ResumeEditor() {
   const currentStep = searchParams.get('step') || steps[0].key;
 
   const [resumeData, setResumeData] = useState<ResumeValues>({});
+  const [ShowSmResumePreview, setShowSmResumePreview] = useState(false)
 
   const setCurrentStep = (key: string) => {
     const newSearchParams = new URLSearchParams(searchParams)
@@ -35,9 +37,15 @@ export default function ResumeEditor() {
     <SidebarProvider>
       <AppSidebar currentStep={currentStep} setCurrentStep={setCurrentStep} />
       <SidebarInset>
-        <ResumeEditorHeader />
-        <div className="flex flex-1 gap-4 p-4 pt-0">
-          <div className='overflow-y-auto w-[40%] pt-8.5'>
+        <ResumeEditorHeader
+          ShowSmResumePreview={ShowSmResumePreview}
+          setShowSmResumePreview={setShowSmResumePreview}
+        />
+        <div className="flex flex-1 gap-28 justify-between px-12 overflow-y-auto">
+          <div
+           className={cn('overflow-y-auto md:w-1/2 w-full py-12', ShowSmResumePreview && "hidden")}
+          //  className='overflow-y-auto md:w-1/3 w-full pt-8.5'
+          >
            {FormComponent && (
             <FormComponent
              resumeData={resumeData}
@@ -48,8 +56,8 @@ export default function ResumeEditor() {
           </div>
           <ResumePreviewSection
             resumeData={resumeData}
-            setResumeData={setResumeData}
-          />
+            className={cn( ShowSmResumePreview && "flex")}
+            />
           {/* <div className='overflow-y-auto w-full p-10'>
             <pre>{JSON.stringify(resumeData, null, 2)}</pre>
           </div> */}

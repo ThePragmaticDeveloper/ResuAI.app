@@ -6,9 +6,15 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbP
 import { Button } from '@/components/ui/button'
 import { FileUserIcon, PenLineIcon } from 'lucide-react'
 
-export default function ResumeEditorHeader() {
 
-  const [ShowSmResumePreview, setShowSmResumePreview] = useState(false)
+interface ResumeEditorHeaderProps {
+  ShowSmResumePreview: boolean;
+  setShowSmResumePreview: (value: boolean) => void
+}
+
+export default function ResumeEditorHeader({ShowSmResumePreview, setShowSmResumePreview}: ResumeEditorHeaderProps) {
+
+  
   return (
     <header className="flex h-12 shrink-0 items-center justify-between transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
       <div className="flex items-center gap-1 pl-12">
@@ -22,7 +28,8 @@ export default function ResumeEditorHeader() {
           variant="outline"
           size="icon"
           className="md:hidden"
-          onClick={() => setShowSmResumePreview((prev) => !prev)}
+          title={ShowSmResumePreview ? "Hide Resume Preview" : "Show Resume Preview"}
+          onClick={() => setShowSmResumePreview(!ShowSmResumePreview)}
         >
           {ShowSmResumePreview ? <PenLineIcon /> : <FileUserIcon />}
         </Button>
