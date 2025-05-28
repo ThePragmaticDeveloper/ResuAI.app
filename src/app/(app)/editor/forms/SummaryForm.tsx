@@ -55,11 +55,6 @@ export default function SummaryForm({
                 <Textarea
                   {...field}
                   placeholder="A brief summary of your professional background, skills, and achievements."
-                  // className="w-[30rem] text-xl! shadow-none outline-none border-none focus-visible:ring-0 focus-visible:border-none px-0 bg-transparent!"
-                  onChange={(e) => {
-                    const skills = e.target.value.split(",");
-                    field.onChange(skills);
-                  }}
                 />
               </FormControl>
               <FormMessage />

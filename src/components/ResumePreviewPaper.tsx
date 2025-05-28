@@ -2,6 +2,7 @@ import useDimensions from "@/hooks/useDimensions";
 import { cn } from "@/lib/utils"
 import { ResumeValues } from "@/lib/validation"
 import { useRef } from "react";
+import { formatDate } from "date-fns";
 
 interface ResumePreviewPaperProps {
   resumeData: ResumeValues
@@ -31,7 +32,7 @@ export default function ResumePreviewPaper({resumeData, className}: ResumePrevie
        <SummarySection resumeData={resumeData} />
         {/* Add more sections as needed */}
         {/* Example: */}
-        {/* <ExperienceSection resumeData={resumeData} /> */}
+        <WorkExperienceSection resumeData={resumeData} />
         {/* <EducationSection resumeData={resumeData} /> */}
         {/* <SkillsSection resumeData={resumeData} /> */}
   
@@ -85,8 +86,9 @@ function PersonalInfoHeader({ resumeData }: ResumeSectionProps) {
 function SummarySection({ resumeData }: ResumeSectionProps) {
   const { summary } = resumeData;
 
+  // console.log('Summary value:', summary, 'Type:', typeof summary, 'Trimmed:', typeof summary === 'string' ? summary.trim() : 'N/A');
   if (!summary) return null;
-
+  
   return (
     <div className="break-inside-avoid space-y-1">
       <p className="text-3xl">
@@ -95,5 +97,50 @@ function SummarySection({ resumeData }: ResumeSectionProps) {
       <hr className="border-1 mb-3" />
       <div className="whitespace-pre-line text-2xl">{summary}</div>
     </div>
+  );
+  
+}
+
+function WorkExperienceSection({ resumeData }: ResumeSectionProps) {
+  const { workExperiences } = resumeData;
+
+  const workExperiencesNotEmpty = workExperiences?.filter(
+    (exp) => Object.values(exp).filter(Boolean).length > 0,
+  );
+
+  if (!workExperiencesNotEmpty?.length) return null;
+
+  return (
+      
+      <div className="space-y-1">
+        <p
+          className="text-3xl"
+          
+        >
+          Work Experience
+        </p>
+        <hr
+        className="border-1 mb-3"
+        
+        />
+        {workExperiencesNotEmpty.map((exp, index) => (
+          <div key={index} className="break-inside-avoid space-y-1">
+            <div
+              className="flex items-center justify-between text-2xl"
+              
+            >
+              <span>{exp.position}</span>
+              {exp.startDate && (
+                <span>
+                  {formatDate(exp.startDate, "MM/yyyy")} -{" "}
+                  {exp.endDate ? formatDate(exp.endDate, "MM/yyyy") : "Present"}
+                </span>
+              )}
+            </div>
+            <p className="text-2xl">{exp.companyName}</p>
+            <div className="whitespace-pre-line text-2xl">{exp.description}</div>
+          </div>
+        ))}
+      </div>
   );
 }
