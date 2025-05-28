@@ -21,7 +21,7 @@ export default function ResumePreviewPaper({resumeData, className}: ResumePrevie
      className={cn("bg-white h-fit w-full aspect-[210/297]", className)}
     >
       <div
-        className={cn("space-y-10 py-12 px-24 text-[#1a1a1a] font-medium", !width && "invisible")}
+        className={cn("space-y-10 py-12 px-20 text-[#1a1a1a] font-medium", !width && "invisible")}
         style={{
           zoom: (1 / 794) * width,
         }}
@@ -30,10 +30,8 @@ export default function ResumePreviewPaper({resumeData, className}: ResumePrevie
       >
        <PersonalInfoHeader resumeData={resumeData} />
        <SummarySection resumeData={resumeData} />
-        {/* Add more sections as needed */}
-        {/* Example: */}
-        <WorkExperienceSection resumeData={resumeData} />
-        {/* <EducationSection resumeData={resumeData} /> */}
+       <EducationSection resumeData={resumeData} />
+       <WorkExperienceSection resumeData={resumeData} />
         {/* <SkillsSection resumeData={resumeData} /> */}
   
         {/* Uncomment to test responsive text size */}
@@ -91,11 +89,11 @@ function SummarySection({ resumeData }: ResumeSectionProps) {
   
   return (
     <div className="break-inside-avoid space-y-1">
-      <p className="text-3xl">
+      <p className="text-3xl font-semibold">
         Professional Summary
       </p>
       <hr className="border-1 mb-3" />
-      <div className="whitespace-pre-line text-2xl">{summary}</div>
+      <div className="whitespace-pre-line text-2xl pl-5">{summary}</div>
     </div>
   );
   
@@ -114,31 +112,63 @@ function WorkExperienceSection({ resumeData }: ResumeSectionProps) {
       
       <div className="space-y-1">
         <p
-          className="text-3xl"
+          className="text-3xl font-semibold"
           
         >
           Work Experience
         </p>
-        <hr
-        className="border-1 mb-3"
-        
-        />
+        <hr className="border-1 mb-3" />
         {workExperiencesNotEmpty.map((exp, index) => (
-          <div key={index} className="break-inside-avoid space-y-1">
+          <div key={index} className="break-inside-avoid mb-7 pl-5 space-y-1">
             <div
-              className="flex items-center justify-between text-2xl"
+              className="flex items-center justify-between text-3xl"
               
             >
               <span>{exp.position}</span>
               {exp.startDate && (
-                <span>
+                <span className="text-2xl">
                   {formatDate(exp.startDate, "MM/yyyy")} -{" "}
                   {exp.endDate ? formatDate(exp.endDate, "MM/yyyy") : "Present"}
                 </span>
               )}
             </div>
             <p className="text-2xl">{exp.companyName}</p>
-            <div className="whitespace-pre-line text-2xl">{exp.description}</div>
+            <div className="whitespace-pre-line text-2xl pl-5">{exp.description}</div>
+          </div>
+        ))}
+      </div>
+  );
+}
+
+function EducationSection({ resumeData }: ResumeSectionProps) {
+  const { educations } = resumeData;
+
+  const educationsNotEmpty = educations?.filter(
+    (edu) => Object.values(edu).filter(Boolean).length > 0,
+  );
+
+  if (!educationsNotEmpty?.length) return null;
+
+  return (
+      <div className="space-y-1">
+        <p className="text-3xl font-semibold">
+          Education
+        </p>
+        <hr className="border-1 mb-3" />
+        {educationsNotEmpty.map((edu, index) => (
+          <div key={index} className="break-inside-avoid mb-7 pl-5 space-y-1">
+            <div
+              className="flex items-center justify-between text-3xl"
+            >
+              <span>{edu.degree}</span>
+              {edu.startDate && (
+                <span className="text-2xl">
+                  {edu.startDate &&
+                    `${formatDate(edu.startDate, "MM/yyyy")} ${edu.endDate ? `- ${formatDate(edu.endDate, "MM/yyyy")}` : ""}`}
+                </span>
+              )}
+            </div>
+            <p className="text-2xl">{edu.schoolName}</p>
           </div>
         ))}
       </div>

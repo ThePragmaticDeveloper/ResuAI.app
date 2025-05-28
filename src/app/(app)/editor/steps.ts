@@ -22,15 +22,15 @@ export const steps: {
   imgUrl: "/writing_hand.png",
   component: SummaryForm,
 }, {
-  key: "work-experience",
-  title: "Work Experience",
-  imgUrl: "/case.png",
-  component: WorkExperienceForm,
-}, {
   key: "education",
   title: "Education",
   imgUrl: "/cap.png",
   component: EducationForm,
+}, {
+  key: "work-experience",
+  title: "Work Experience",
+  imgUrl: "/case.png",
+  component: WorkExperienceForm,
 }, {
   key: "skills",
   title: "Skills",
