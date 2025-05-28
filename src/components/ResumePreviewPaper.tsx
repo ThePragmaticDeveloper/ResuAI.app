@@ -32,12 +32,7 @@ export default function ResumePreviewPaper({resumeData, className}: ResumePrevie
        <SummarySection resumeData={resumeData} />
        <EducationSection resumeData={resumeData} />
        <WorkExperienceSection resumeData={resumeData} />
-        {/* <SkillsSection resumeData={resumeData} /> */}
-  
-        {/* Uncomment to test responsive text size */}
-      {/* <h1 className="text-5xl font-bold text-center text-black">
-        This text should change with the size of the container div
-      </h1> */}
+       <SkillsSection resumeData={resumeData} />
       </div>
     </div>
   )
@@ -84,7 +79,6 @@ function PersonalInfoHeader({ resumeData }: ResumeSectionProps) {
 function SummarySection({ resumeData }: ResumeSectionProps) {
   const { summary } = resumeData;
 
-  // console.log('Summary value:', summary, 'Type:', typeof summary, 'Trimmed:', typeof summary === 'string' ? summary.trim() : 'N/A');
   if (!summary) return null;
   
   return (
@@ -172,5 +166,29 @@ function EducationSection({ resumeData }: ResumeSectionProps) {
           </div>
         ))}
       </div>
+  );
+}
+
+function SkillsSection({ resumeData }: ResumeSectionProps) {
+  const { skills } = resumeData;
+
+  if (!skills?.length) return null;
+
+  return (
+    <div className="break-inside-avoid space-y-1">
+      <p className="text-3xl font-semibold">
+        Skills
+      </p>
+      <hr className="border-1 mb-3" />
+      <div className="flex flex-wrap gap-2 pl-5 break-inside-avoid">
+        <ul className="list-disc text-2xl">
+          {skills.map((skill, index) => (
+            <li key={index} className="mb-1">
+              {skill}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 }
