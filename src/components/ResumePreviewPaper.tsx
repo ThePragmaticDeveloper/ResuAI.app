@@ -86,7 +86,7 @@ function SummarySection({ resumeData }: ResumeSectionProps) {
       <p className="text-3xl font-semibold">
         Professional Summary
       </p>
-      <hr className="border-1 mb-3" />
+      <hr className="border-1 mb-3 border-gray-400" />
       <div className="whitespace-pre-line text-2xl pl-5">{summary}</div>
     </div>
   );
@@ -111,7 +111,7 @@ function WorkExperienceSection({ resumeData }: ResumeSectionProps) {
         >
           Work Experience
         </p>
-        <hr className="border-1 mb-3" />
+        <hr className="border-1 mb-3 border-gray-400" />
         {workExperiencesNotEmpty.map((exp, index) => (
           <div key={index} className="break-inside-avoid mb-7 pl-5 space-y-1">
             <div
@@ -148,7 +148,7 @@ function EducationSection({ resumeData }: ResumeSectionProps) {
         <p className="text-3xl font-semibold">
           Education
         </p>
-        <hr className="border-1 mb-3" />
+        <hr className="border-1 mb-3 border-gray-400" />
         {educationsNotEmpty.map((edu, index) => (
           <div key={index} className="break-inside-avoid mb-7 pl-5 space-y-1">
             <div
@@ -179,7 +179,7 @@ function SkillsSection({ resumeData }: ResumeSectionProps) {
       <p className="text-3xl font-semibold">
         Skills
       </p>
-      <hr className="border-1 mb-3" />
+      <hr className="border-1 mb-3 border-gray-400" />
       <div className="flex flex-wrap gap-2 pl-5 break-inside-avoid">
         <ul className="list-disc text-2xl">
           {skills.map((skill, index) => (

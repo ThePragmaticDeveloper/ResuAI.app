@@ -1,14 +1,4 @@
 "use client"
-
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { Separator } from "@/components/ui/separator"
 import {
   SidebarInset,
   SidebarProvider,
@@ -19,8 +9,8 @@ import { useSearchParams } from "next/navigation"
 import { steps } from "./steps"
 import { ResumeValues } from "@/lib/validation";
 import { useState } from "react";
-import TitleForm from "./forms/TitleForm";
 import ResumePreviewSection from "./ResumePreviewSection";
+import ResumeEditorHeader from "./ResumeEditorHeader";
 
 
 export default function ResumeEditor() {
@@ -45,29 +35,7 @@ export default function ResumeEditor() {
     <SidebarProvider>
       <AppSidebar currentStep={currentStep} setCurrentStep={setCurrentStep} />
       <SidebarInset>
-        <header className="flex h-12 shrink-0 items-center justify-between transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
-          <div className="flex items-center gap-1 pl-12">
-            <SidebarTrigger className="-ml-1" />
-            <Separator
-              orientation="vertical"
-              className="mr-1 data-[orientation=vertical]:h-4"
-            />
-            <TitleForm />
-            <Breadcrumb>
-              <BreadcrumbList>
-                <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="#">
-                    Building Your Application
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator className="hidden md:block" />
-                <BreadcrumbItem>
-                  <BreadcrumbPage>Data Fetching</BreadcrumbPage>
-                </BreadcrumbItem>
-              </BreadcrumbList>
-            </Breadcrumb>
-          </div>
-        </header>
+        <ResumeEditorHeader />
         <div className="flex flex-1 gap-4 p-4 pt-0">
           <div className='overflow-y-auto w-[40%] pt-8.5'>
            {FormComponent && (
