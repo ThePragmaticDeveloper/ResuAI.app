@@ -5,7 +5,7 @@ import TitleForm from './forms/TitleForm'
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb'
 import { Button } from '@/components/ui/button'
 import { FileUserIcon, Loader2, PenLineIcon } from 'lucide-react'
-import { cn } from '@/lib/utils'
+
 
 
 interface ResumeEditorHeaderProps {
@@ -35,12 +35,13 @@ export default function ResumeEditorHeader({isSaving, ShowSmResumePreview, setSh
         >
           {ShowSmResumePreview ? <PenLineIcon /> : <FileUserIcon />}
         </Button>
-        <p className={cn("text-muted-foreground opacity-0 text-lg font-normal", isSaving && "opacity-100")}>
-          Saving...
-          {/* {isSaving ? "Saving..." : "Ready"} */}
-          {/* <Loader2 /> */}
-        </p>
-
+        {isSaving && (
+          <div className='flex items-center gap-1'>
+            <Loader2 className="animate-spin ml-2 h-6 w-6" />
+            <p className="text-lg font-normal relative top-0.5">Saving...</p>
+          </div>
+        )}
+    
         {/* <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem className="hidden md:block">
