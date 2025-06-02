@@ -73,5 +73,5 @@ export const resumeSchema = z.object({
 })
 
 export type ResumeValues = z.infer<typeof resumeSchema> & {
-  resumeId?: string;
+  id?: string;
 };

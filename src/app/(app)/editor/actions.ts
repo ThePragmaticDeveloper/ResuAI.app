@@ -5,9 +5,9 @@ import { resumeSchema, ResumeValues } from "@/lib/validation";
 import { auth } from "@clerk/nextjs/server";
 
 export async function saveResumeToDB(values: ResumeValues) {
-  const {resumeId} = values;
+  const {id} = values;
 
-  console.log("received values in saveResumeData:", values);
+  console.log("received values:", values);
 
   const {
     educations,
@@ -23,18 +23,18 @@ export async function saveResumeToDB(values: ResumeValues) {
 
   // Check resume Count for subscription
 
-  const existingResume = resumeId ?
-    await prisma.resume.findUnique({where: {id: resumeId, userId}})
+  const existingResume = id ?
+    await prisma.resume.findUnique({where: {id, userId}})
     : null;
 
-  if(resumeId && !existingResume) {
+  if(id && !existingResume) {
     throw new Error("Resume not found or you do not have permission to edit it.");
   }
 
-  if(resumeId) {
+  if(id) {
     // Update existing resume
     return await prisma.resume.update({
-      where: { id: resumeId },
+      where: { id },
       data: {
         ...resumeValues,
         educations: {
