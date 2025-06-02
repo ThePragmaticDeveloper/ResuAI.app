@@ -4,15 +4,17 @@ import { useState } from 'react'
 import TitleForm from './forms/TitleForm'
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb'
 import { Button } from '@/components/ui/button'
-import { FileUserIcon, PenLineIcon } from 'lucide-react'
+import { FileUserIcon, Loader2, PenLineIcon } from 'lucide-react'
+import { cn } from '@/lib/utils'
 
 
 interface ResumeEditorHeaderProps {
+  isSaving: boolean;
   ShowSmResumePreview: boolean;
   setShowSmResumePreview: (value: boolean) => void
 }
 
-export default function ResumeEditorHeader({ShowSmResumePreview, setShowSmResumePreview}: ResumeEditorHeaderProps) {
+export default function ResumeEditorHeader({isSaving, ShowSmResumePreview, setShowSmResumePreview}: ResumeEditorHeaderProps) {
 
   
   return (
@@ -33,7 +35,13 @@ export default function ResumeEditorHeader({ShowSmResumePreview, setShowSmResume
         >
           {ShowSmResumePreview ? <PenLineIcon /> : <FileUserIcon />}
         </Button>
-        <Breadcrumb>
+        <p className={cn("text-muted-foreground opacity-0 text-lg font-normal", isSaving && "opacity-100")}>
+          Saving...
+          {/* {isSaving ? "Saving..." : "Ready"} */}
+          {/* <Loader2 /> */}
+        </p>
+
+        {/* <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem className="hidden md:block">
               <BreadcrumbLink href="#">
@@ -45,7 +53,7 @@ export default function ResumeEditorHeader({ShowSmResumePreview, setShowSmResume
               <BreadcrumbPage>Data Fetching</BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
-        </Breadcrumb>
+        </Breadcrumb> */}
       </div>
     </header>
   )

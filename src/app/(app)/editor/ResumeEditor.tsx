@@ -47,6 +47,7 @@ export default function ResumeEditor() {
       <AppSidebar currentStep={currentStep} setCurrentStep={setCurrentStep} />
       <SidebarInset>
         <ResumeEditorHeader
+          isSaving={isSaving}
           ShowSmResumePreview={ShowSmResumePreview}
           setShowSmResumePreview={setShowSmResumePreview}
         />
