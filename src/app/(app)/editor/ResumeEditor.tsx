@@ -12,6 +12,9 @@ import { useState } from "react";
 import ResumePreviewSection from "./ResumePreviewSection";
 import ResumeEditorHeader from "./ResumeEditorHeader";
 import { cn } from "@/lib/utils";
+import useUnloadWarning from "@/hooks/useUnloadWarning";
+import useAutoSaveResume from "./useAutoSaveResume";
+// import useAutoSaveResume from "./useAutosaveResume";
 
 
 export default function ResumeEditor() {
@@ -19,8 +22,14 @@ export default function ResumeEditor() {
   const searchParams = useSearchParams();
   const currentStep = searchParams.get('step') || steps[0].key;
 
+  
   const [resumeData, setResumeData] = useState<ResumeValues>({});
-  const [ShowSmResumePreview, setShowSmResumePreview] = useState(false)
+  const [ShowSmResumePreview, setShowSmResumePreview] = useState(false);
+
+  const {isSaving, hasUnsavedChanges} = useAutoSaveResume(resumeData);
+  // console.log("ResumeEditor Rendering.........")
+  // console.log("hasUnsavedChanges", hasUnsavedChanges);
+  useUnloadWarning(hasUnsavedChanges);
 
   const setCurrentStep = (key: string) => {
     const newSearchParams = new URLSearchParams(searchParams)

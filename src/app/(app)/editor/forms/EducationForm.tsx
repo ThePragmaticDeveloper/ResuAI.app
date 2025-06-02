@@ -39,14 +39,26 @@ export default function EducationForm({resumeData, setResumeData}: EditorFormPro
   });
   
   useEffect(() => {
-    const subscription = form.watch((values) => {
-    setResumeData(prevData => ({
-      ...prevData,
-      educations: values.educations?.filter(edu => edu !== undefined) || [],
-    }));
-    })
-    return () => subscription.unsubscribe()
-  }, [form.watch, setResumeData])
+  const subscription = form.watch((values) => {
+    const nonEmptyEducations = values.educations?.filter((edu) => {
+      // Return true if at least one field is not empty
+      return Object.values(edu || {}).some((field) => {
+        return typeof field === "string" ? field.trim() !== "" : !!field;
+      });
+    });
+
+    // Only update resumeData if there's at least one non-empty education
+    if (nonEmptyEducations && nonEmptyEducations.length > 0) {
+      setResumeData((prevData) => ({
+        ...prevData,
+        educations: nonEmptyEducations.filter((edu): edu is NonNullable<typeof edu> => !!edu),
+      }));
+    }
+  });
+
+  return () => subscription.unsubscribe();
+  }, [form.watch, setResumeData]);
+
   
   const { fields, append, remove, move } = useFieldArray({
     control: form.control,

@@ -40,14 +40,35 @@ export default function WorkExperienceForm({resumeData, setResumeData}: EditorFo
   });
 
   useEffect(() => {
-   const subscription = form.watch((values) => {
-    setResumeData(prevData => ({
-      ...prevData,
-      workExperiences: values.workExperiences?.filter(exp => exp !== undefined) || [],
-    }));
-   })
-   return () => subscription.unsubscribe()
-  }, [form.watch, setResumeData])
+  const subscription = form.watch((values) => {
+    const nonEmptyExperiences = values.workExperiences?.filter((exp) => {
+      // Return true if at least one field is not empty
+      return Object.values(exp || {}).some((field) => {
+        return typeof field === "string" ? field.trim() !== "" : !!field;
+      });
+    });
+
+    // Only update resumeData if there's at least one non-empty education
+    if (nonEmptyExperiences && nonEmptyExperiences.length > 0) {
+      setResumeData((prevData) => ({
+        ...prevData,
+        workExperiences: nonEmptyExperiences.filter((exp): exp is NonNullable<typeof exp> => !!exp),
+      }));
+    }
+  });
+
+  return () => subscription.unsubscribe();
+  }, [form.watch, setResumeData]);
+
+  // useEffect(() => {
+  //  const subscription = form.watch((values) => {
+  //   setResumeData(prevData => ({
+  //     ...prevData,
+  //     workExperiences: values.workExperiences?.filter(exp => exp !== undefined) || [],
+  //   }));
+  //  })
+  //  return () => subscription.unsubscribe()
+  // }, [form.watch, setResumeData])
 
   const { fields, append, remove, move } = useFieldArray({
     control: form.control,
