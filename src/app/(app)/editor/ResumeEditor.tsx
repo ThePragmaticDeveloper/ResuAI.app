@@ -11,19 +11,28 @@ import { ResumeValues } from "@/lib/validation";
 import { useState } from "react";
 import ResumePreviewSection from "./ResumePreviewSection";
 import ResumeEditorHeader from "./ResumeEditorHeader";
-import { cn } from "@/lib/utils";
+import { cn, mapToResumeValues } from "@/lib/utils";
 import useUnloadWarning from "@/hooks/useUnloadWarning";
 import useAutoSaveResume from "./useAutoSaveResume";
+import { ResumeServerData } from "@/lib/types";
 // import useAutoSaveResume from "./useAutosaveResume";
 
 
-export default function ResumeEditor() {
+interface ResumeEditorProps {
+  resumeToEdit: ResumeServerData | null;
+}
+
+
+export default function ResumeEditor({resumeToEdit}: ResumeEditorProps) {
 
   const searchParams = useSearchParams();
   const currentStep = searchParams.get('step') || steps[0].key;
 
   
-  const [resumeData, setResumeData] = useState<ResumeValues>({});
+  // const [resumeData, setResumeData] = useState<ResumeValues>({});
+  const [resumeData, setResumeData] = useState<ResumeValues>(
+    resumeToEdit ? mapToResumeValues(resumeToEdit) : {},
+  );
   const [ShowSmResumePreview, setShowSmResumePreview] = useState(false);
 
   const {isSaving, hasUnsavedChanges} = useAutoSaveResume(resumeData);

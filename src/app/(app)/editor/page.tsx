@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import ResumeEditor from './ResumeEditor';
 import { auth } from '@clerk/nextjs/server';
 import prisma from '@/lib/prisma';
+import { resumeDataInclude } from '@/lib/types';
 // import ResumeEditor from './ResumeEditor'
 
 export const metadata: Metadata = {
@@ -25,13 +26,13 @@ export default async function ResumeEditorPage({ searchParams }: PageProps) {
     return null;
   }
 
-  // const resumeToEdit = resumeId
-  //   ? await prisma.resume.findUnique({
-  //       where: { id: resumeId, userId },
-  //       include: resumeDataInclude,
-  //     })
-  //   : null;
+  const resumeToEdit = resumeId
+    ? await prisma.resume.findUnique({
+        where: { id: resumeId, userId },
+        include: resumeDataInclude,
+      })
+    : null;
 
-  // return <ResumeEditor resumeToEdit={resumeToEdit} />;
+  return <ResumeEditor resumeToEdit={resumeToEdit} />;
 }
 
