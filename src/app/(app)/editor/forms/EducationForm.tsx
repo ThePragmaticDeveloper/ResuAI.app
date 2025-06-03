@@ -127,7 +127,7 @@ export default function EducationForm({resumeData, setResumeData}: EditorFormPro
             onClick={() =>
               append({
                 degree: "",
-                schoolName: "",
+                school: "",
                 startDate: "",
                 endDate: "",
               })
@@ -203,7 +203,7 @@ function EducationItem({id, form, index, remove}: EducationItemProps) {
     />
     <FormField
      control={form.control}
-     name={`educations.${index}.schoolName`}
+     name={`educations.${index}.school`}
      render={({ field }) => (
       <FormItem>
         <FormLabel>School</FormLabel>

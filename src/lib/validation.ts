@@ -27,7 +27,7 @@ export const workExperienceSchema = z.object({
   workExperiences: z.array(
     z.object({
      position: optionalString,
-     companyName: optionalString,
+     company: optionalString,
      jobTitle: optionalString,
      startDate: optionalString,
      endDate: optionalString,
@@ -41,7 +41,7 @@ export type WorkExperienceValues = z.infer<typeof workExperienceSchema>;
 export const educationSchema = z.object({
   educations: z.array(
     z.object({
-      schoolName: optionalString,
+      school: optionalString,
       degree: optionalString,
       startDate: optionalString,
       endDate: optionalString,

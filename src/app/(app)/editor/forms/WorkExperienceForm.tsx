@@ -136,7 +136,7 @@ export default function WorkExperienceForm({resumeData, setResumeData}: EditorFo
             onClick={() =>
               append({
                 position: "",
-                companyName: "",
+                company: "",
                 startDate: "",
                 endDate: "",
                 description: "",
@@ -211,7 +211,7 @@ function WorkExperienceItem({id, form, index, remove}: WorkExperienceItemProps) 
     />
     <FormField
      control={form.control}
-     name={`workExperiences.${index}.companyName`}
+     name={`workExperiences.${index}.company`}
      render={({ field }) => (
       <FormItem>
         <FormLabel>Company</FormLabel>
