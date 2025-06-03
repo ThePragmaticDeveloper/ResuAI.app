@@ -15,7 +15,6 @@ import { cn, mapToResumeValues } from "@/lib/utils";
 import useUnloadWarning from "@/hooks/useUnloadWarning";
 import useAutoSaveResume from "./useAutoSaveResume";
 import { ResumeServerData } from "@/lib/types";
-// import useAutoSaveResume from "./useAutosaveResume";
 
 
 interface ResumeEditorProps {
@@ -28,16 +27,12 @@ export default function ResumeEditor({resumeToEdit}: ResumeEditorProps) {
   const searchParams = useSearchParams();
   const currentStep = searchParams.get('step') || steps[0].key;
 
-  
-  // const [resumeData, setResumeData] = useState<ResumeValues>({});
   const [resumeData, setResumeData] = useState<ResumeValues>(
     resumeToEdit ? mapToResumeValues(resumeToEdit) : {},
   );
   const [ShowSmResumePreview, setShowSmResumePreview] = useState(false);
 
-  const {isSaving, hasUnsavedChanges} = useAutoSaveResume(resumeData);
-  // console.log("ResumeEditor Rendering.........")
-  // console.log("hasUnsavedChanges", hasUnsavedChanges);
+  const {isSaving, hasUnsavedChanges} = useAutoSaveResume(resumeData)
   useUnloadWarning(hasUnsavedChanges);
 
   const setCurrentStep = (key: string) => {
