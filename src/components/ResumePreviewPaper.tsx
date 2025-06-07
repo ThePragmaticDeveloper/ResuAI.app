@@ -5,8 +5,9 @@ import { useRef } from "react";
 import { formatDate } from "date-fns";
 
 interface ResumePreviewPaperProps {
-  resumeData: ResumeValues
-  className?: string
+  resumeData: ResumeValues;
+  contentRef?: React.Ref<HTMLDivElement>;
+  className?: string;
 }
 
 export default function ResumePreviewPaper({resumeData, className}: ResumePreviewPaperProps) {
