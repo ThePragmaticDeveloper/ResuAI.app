@@ -48,7 +48,7 @@ export default function ResumeItem({ resume }: ResumeItemProps) {
           href={`/editor?resumeId=${resume.id}`}
           className="inline-block w-full text-center"
         >
-          <p className="line-clamp-1 font-semibold">
+          <p className="line-clamp-1 text-lg">
             {resume.title || "No title"}
           </p>
           {resume.description && (
