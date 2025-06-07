@@ -3,7 +3,6 @@ import { ResumeValues } from "@/lib/validation";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { saveResumeToDB } from "./actions";
-// import { useToast } from "@/hooks/use-toast";
 
 export default function useAutoSaveResume(resumeData: ResumeValues) {
   const searchParams = useSearchParams();
