@@ -126,7 +126,7 @@ function WorkExperienceSection({ resumeData }: ResumeSectionProps) {
                 </span>
               )}
             </div>
-            <p className="text-2xl">{exp.companyName}</p>
+            <p className="text-2xl">{exp.company}</p>
             <div className="whitespace-pre-line text-2xl pl-5">{exp.description}</div>
           </div>
         ))}
@@ -162,7 +162,7 @@ function EducationSection({ resumeData }: ResumeSectionProps) {
                 </span>
               )}
             </div>
-            <p className="text-2xl">{edu.schoolName}</p>
+            <p className="text-2xl">{edu.school}</p>
           </div>
         ))}
       </div>
