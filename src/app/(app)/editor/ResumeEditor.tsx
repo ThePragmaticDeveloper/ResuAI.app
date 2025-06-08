@@ -50,7 +50,6 @@ export default function ResumeEditor({resumeToEdit}: ResumeEditorProps) {
   return (
     <SidebarProvider>
       <EditorSidebar currentStep={currentStep} setCurrentStep={setCurrentStep} />
-      {/* <AppSidebar currentStep={currentStep} setCurrentStep={setCurrentStep} /> */}
       <SidebarInset>
         <ResumeEditorHeader
           isSaving={isSaving}
