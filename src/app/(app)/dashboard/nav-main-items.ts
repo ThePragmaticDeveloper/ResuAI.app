@@ -3,7 +3,7 @@ export const NavMainItems: {
   key: string;
   title: string;
   imgUrl: string;
-  href?: string;
+  href: string;
 }[] = [{
   key: "resumes",
   title: "Resumes",
