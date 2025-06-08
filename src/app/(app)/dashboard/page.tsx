@@ -6,6 +6,7 @@ import { Plus } from "lucide-react"
 import { Metadata } from "next"
 import Link from "next/link"
 import ResumeItem from "./ResumeItem"
+import Image from "next/image"
 
 export const metadata: Metadata = {
   title: 'Dashboard',
@@ -36,7 +37,15 @@ export default async function DashboardPage() {
     <main className="p-8 flex ">
       <div className="w-[26rem] h-full"></div>
       <div className="pt-20">
-      <h1>Dashboard</h1>
+      <div className='flex items-center gap-2 mb-4'>
+       <Image className="" src='/wave.png' alt='' width='22' height='22' />
+       <h1>Hi, Ademola</h1>
+       {/* <h3 className=''>
+        <span className="text-xl">Hi, Ademola</span>
+       </h3> */}
+      </div>
+
+      
       <Button asChild className="rounded-lg mb-12" size="lg">
         <Link href="/editor" className="py-6">
          <Plus className="size-[1.6rem] mt-[-.2rem]" strokeWidth={1.5} />
