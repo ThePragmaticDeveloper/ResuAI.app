@@ -15,6 +15,7 @@ import { cn, mapToResumeValues } from "@/lib/utils";
 import useUnloadWarning from "@/hooks/useUnloadWarning";
 import useAutoSaveResume from "./useAutoSaveResume";
 import { ResumeServerData } from "@/lib/types";
+import { EditorSidebar } from "@/components/EditorSidebar";
 
 
 interface ResumeEditorProps {
@@ -48,7 +49,8 @@ export default function ResumeEditor({resumeToEdit}: ResumeEditorProps) {
 
   return (
     <SidebarProvider>
-      <AppSidebar currentStep={currentStep} setCurrentStep={setCurrentStep} />
+      <EditorSidebar currentStep={currentStep} setCurrentStep={setCurrentStep} />
+      {/* <AppSidebar currentStep={currentStep} setCurrentStep={setCurrentStep} /> */}
       <SidebarInset>
         <ResumeEditorHeader
           isSaving={isSaving}

@@ -195,9 +195,9 @@ export interface NavMainProps {
   setCurrentStep: (step: string) => void;
 }
 
-// type AppSidebarProps = React.ComponentProps<typeof Sidebar> & NavMainProps
+type EditorSidebarProps = React.ComponentProps<typeof Sidebar> & NavMainProps
 
-export function AppSidebar({...props }) {
+export function EditorSidebar({ currentStep, setCurrentStep, ...props }: EditorSidebarProps) {
   
   return (
     <Sidebar collapsible="icon" {...props}>
@@ -209,13 +209,17 @@ export function AppSidebar({...props }) {
         <Image className="" src='/owl.png' alt='' width='26' height='26' />
         <span className='text-xl font-medium tracking-tight'>ResuAI</span>
       </Link>
-      
+      <Button asChild variant='link' className="rounded-xl ml-auto" size="sm">
+        <Link href="/dashboard" className="py-5.5">
+         <ChevronLeft className="size-[1.3rem] mt-[-.1rem] " />
+         <span className="text-lg relative right-1 ">Dashboard</span>
+        </Link>
+      </Button>
       <ThemeToggle />
       </div>
       <SidebarContent>
-        <NavMain />
+        <EditorNavMain currentStep={currentStep} setCurrentStep={setCurrentStep} />
         {/* <NavMain currentStep={currentStep} setCurrentStep={setCurrentStep} /> */}
-        {/* <EditorNavMain currentStep={currentStep} setCurrentStep={setCurrentStep} /> */}
         {/* <NavProjects projects={data.projects} /> */}
       </SidebarContent>
       <SidebarFooter>

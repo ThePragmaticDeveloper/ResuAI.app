@@ -20,13 +20,15 @@ import {
 import { steps } from "@/app/(app)/editor/steps";
 import { NavMainProps } from "./app-sidebar";
 import { ChevronRight } from "lucide-react";
+import { NavMainItems } from "@/app/(app)/dashboard/nav-main-items";
 
 // interface NavMainProps {
 //   currentStep: string;
 //   setCurrentStep: (step: string) => void;
 // }
 
-export function NavMain({currentStep, setCurrentStep}: NavMainProps) {
+// export function NavMain({currentStep, setCurrentStep}: NavMainProps) {
+export function NavMain() {
 
   // const [currentStep, setCurrentStep] = useState("");
 
@@ -34,9 +36,9 @@ export function NavMain({currentStep, setCurrentStep}: NavMainProps) {
     <SidebarGroup>
       {/* <SidebarGroupLabel>Platform</SidebarGroupLabel> */}
       <SidebarMenu>
-        {steps.map((step) => (
+        {NavMainItems.map((item) => (
           <Collapsible
-            key={step.key}
+            key={item.key}
             asChild
             // defaultOpen={item.isActive}
             className="group/collapsible"
@@ -44,23 +46,24 @@ export function NavMain({currentStep, setCurrentStep}: NavMainProps) {
             <SidebarMenuItem>
               <CollapsibleTrigger asChild>
                 <SidebarMenuButton
-                 tooltip={step.title}
-                 className={`py-6 px-3 rounded-lg ${currentStep === step.key ? "activeSidebarBtn" : ""}`}
+                 tooltip={item.title}
+                 className="py-6 px-3 rounded-lg"
+                //  className={`py-6 px-3 rounded-lg ${currentStep === item.key ? "activeSidebarBtn" : ""}`}
                 //  className={`py-5.5 px-3 rounded-lg ${currentStep === step.key ? "bg-primary text-primary-foreground" : ""}`}
                 //  className="py-5.5 px-3 rounded-lg"
-                 onClick={() => setCurrentStep(step.key)}
+                //  onClick={() => setCurrentStep(item.key)}
                  >
                   
-                  {step.imgUrl && (
+                  {item.imgUrl && (
                     <img
-                      src={step.imgUrl}
-                      alt={step.title}
+                      src={item.imgUrl}
+                      alt={item.title}
                       width='16'
                       height='16'
                       className=""
                     />
                   )}
-                  <span className="text-xl">{step.title}</span>
+                  <span className="text-xl">{item.title}</span>
                   <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                 </SidebarMenuButton>
               </CollapsibleTrigger>
