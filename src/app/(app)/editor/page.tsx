@@ -3,7 +3,6 @@ import ResumeEditor from './ResumeEditor';
 import { auth } from '@clerk/nextjs/server';
 import prisma from '@/lib/prisma';
 import { resumeDataInclude } from '@/lib/types';
-// import ResumeEditor from './ResumeEditor'
 
 export const metadata: Metadata = {
   title: 'Design Your Resume',
@@ -15,8 +14,6 @@ interface PageProps {
 }
 
 export const dynamic = "force-dynamic"; // ✅ prevents static optimization
-
-// import ResumeEditor from "./ResumeEditor";
 
 export default async function ResumeEditorPage({ searchParams }: PageProps) {
   const { resumeId } = await searchParams;
