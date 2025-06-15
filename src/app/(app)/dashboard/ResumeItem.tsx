@@ -24,6 +24,8 @@ import { formatDate } from "date-fns";
 import { MoreVertical, Printer, Trash2 } from "lucide-react";
 import Link from "next/link";
 import { useRef, useState, useTransition } from "react";
+import { deleteResume } from "./resumes/actions";
+import LoadingButton from "@/components/LoadingButton";
 // import { useReactToPrint } from "react-to-print";
 // import { deleteResume } from "./actions";
 
@@ -49,7 +51,7 @@ export default function ResumeItem({ resume }: ResumeItemProps) {
           className="inline-block w-full text-center"
         >
           <p className="line-clamp-1 text-lg">
-            {resume.title || "No title"}
+            {resume.title || "Untitled"}
           </p>
           {resume.description && (
             <p className="line-clamp-2 text-sm">{resume.description}</p>
@@ -71,6 +73,7 @@ export default function ResumeItem({ resume }: ResumeItemProps) {
           <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white to-transparent" />
         </Link>
       </div>
+      <MoreMenu resumeId={resume.id} />
       {/* <MoreMenu resumeId={resume.id} onPrintClick={reactToPrintFn} /> */}
     </div>
   );
@@ -78,10 +81,10 @@ export default function ResumeItem({ resume }: ResumeItemProps) {
 
 interface MoreMenuProps {
   resumeId: string;
-  onPrintClick: () => void;
+  // onPrintClick: () => void;
 }
 
-function MoreMenu({ resumeId, onPrintClick }: MoreMenuProps) {
+function MoreMenu({ resumeId }: MoreMenuProps) {
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
 
   return (
@@ -91,9 +94,9 @@ function MoreMenu({ resumeId, onPrintClick }: MoreMenuProps) {
           <Button
             variant="ghost"
             size="icon"
-            className="absolute right-0.5 top-0.5 opacity-0 transition-opacity group-hover:opacity-100"
+            className="absolute cursor-pointer right-0.5 top-0.5 opacity-0 transition-opacity group-hover:opacity-100"
           >
-            <MoreVertical className="size-4" />
+            <MoreVertical className="size-6" />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
@@ -106,7 +109,7 @@ function MoreMenu({ resumeId, onPrintClick }: MoreMenuProps) {
           </DropdownMenuItem>
           <DropdownMenuItem
             className="flex items-center gap-2"
-            onClick={onPrintClick}
+            // onClick={onPrintClick}
           >
             <Printer className="size-4" />
             Print
@@ -140,7 +143,7 @@ function DeleteConfirmationDialog({
   async function handleDelete() {
     startTransition(async () => {
       try {
-        // await deleteResume(resumeId);
+        await deleteResume(resumeId);
         onOpenChange(false);
       } catch (error) {
         console.error(error);
@@ -163,13 +166,13 @@ function DeleteConfirmationDialog({
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
-          {/* <LoadingButton
+          <LoadingButton
             variant="destructive"
             onClick={handleDelete}
             loading={isPending}
           >
             Delete
-          </LoadingButton> */}
+          </LoadingButton>
           <Button variant="secondary" onClick={() => onOpenChange(false)}>
             Cancel
           </Button>

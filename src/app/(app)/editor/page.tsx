@@ -31,5 +31,5 @@ export default async function ResumeEditorPage({ searchParams }: PageProps) {
     : null;
 
   return <ResumeEditor resumeToEdit={resumeToEdit} />;
-}
+} 
 
