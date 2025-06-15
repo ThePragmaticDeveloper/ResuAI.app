@@ -2,6 +2,7 @@
 
 import prisma from "@/lib/prisma";
 import { auth } from "@clerk/nextjs/server";
+import { revalidatePath } from "next/cache";
 
 export async function deleteResume(id: string) {
   const { userId } = await auth();
@@ -21,6 +22,7 @@ export async function deleteResume(id: string) {
   await prisma.resume.delete({
     where: { id },
   });
-  
-  return { success: true };
+
+  revalidatePath("/dashboard/resumes");
+
 }
