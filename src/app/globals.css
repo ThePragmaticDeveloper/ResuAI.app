@@ -212,3 +212,9 @@ body {
   bottom: .4rem;
   border-radius: 15rem;
 } */
+
+.glass {
+  -webkit-backdrop-filter: blur(1.8rem);
+  backdrop-filter: blur(1.8rem);
+  /* background: rgba(3, 0, 20, .002); */
+}

@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
 export const CTA = () => (
-  <div className="w-full py-20 lg:py-40 bg-muted">
+  <div className="w-full py-20 lg:py-40 bg-dotted-gradient">
     <div className="container max-w-[90rem] mx-auto px-4">
       <div className="flex flex-col text-center py-14 gap-4 items-center">
         <div>
