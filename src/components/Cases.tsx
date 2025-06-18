@@ -7,6 +7,51 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import { FaStripe } from "react-icons/fa";
+import { SiSamsung, SiIntel, SiAmd, SiFedex, SiFiverr, SiZoom , SiCognizant, SiNasa, SiActivision } from "react-icons/si";
+
+const brands = [
+  {
+    key: "stripe",
+    component: FaStripe
+  }, 
+  {
+    key: "intel",
+    component: SiIntel
+  },
+  {
+    key: "samsung",
+    component: SiSamsung
+  },
+  {
+    key: "zoom",
+    component: SiZoom 
+  },
+  {
+    key: "cognizant",
+    component: SiCognizant 
+  },
+  {
+    key: "amd",
+    component: SiAmd
+  },
+  {
+    key: "fedex",
+    component: SiFedex
+  },
+  {
+    key: "fiverr",
+    component: SiFiverr
+  },
+  {
+    key: "activision",
+    component: SiActivision
+  },
+  {
+    key: "nase",
+    component: SiNasa
+  }
+]
 
 export const Cases = () => {
   const [api, setApi] = useState<CarouselApi>();
@@ -40,17 +85,19 @@ export const Cases = () => {
             <div className="bg-gradient-to-r from-background via-white/0 to-background z-10 absolute inset-0 h-full w-full pointer-events-none" />
             <Carousel setApi={setApi} className="w-full">
               <CarouselContent>
-                {Array.from({ length: 25 }).map((_, index) => (
+                {brands.map((brand, index) => (
                   <CarouselItem
                     className="basis-1/4 lg:basis-1/6"
                     key={index}
                   >
-                    <div className="flex rounded-md aspect-square bg-muted items-center justify-center p-2">
-                      <span className="text-sm">Logo {index + 1}</span>
+                    <div className="flex items-center justify-center p-2">
+                      {brand.component && <brand.component size={48} />}
+                      
                     </div>
                   </CarouselItem>
                 ))}
               </CarouselContent>
+              
             </Carousel>
           </div>
         </div>
