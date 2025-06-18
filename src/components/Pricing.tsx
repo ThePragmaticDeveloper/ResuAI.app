@@ -18,27 +18,27 @@ export const Pricing = () => (
         <div className="grid text-left w-full grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 divide-x pt-20"> {/* Adjusted grid-cols */}
           <div className="col-span-2 lg:col-span-1"></div>
           <div className="px-3 py-1 md:px-6 md:py-4 gap-2 flex flex-col">
-            <p className="text-2xl">Startup</p>
+            <p className="text-2xl">Basic</p>
             <p className="text-sm text-muted-foreground">
               Our goal is to streamline SMB trade, making it easier and faster
               than ever for everyone and everywhere.
             </p>
             <p className="flex flex-col lg:flex-row lg:items-center gap-2 text-xl mt-8">
-              <span className="text-4xl">$40</span>
-              <span className="text-sm text-muted-foreground"> / month</span>
+              <span className="text-4xl">Free</span>
+              {/* <span className="text-sm text-muted-foreground"> / month</span> */}
             </p>
             <Button variant="outline" className="gap-4 mt-8">
               Try it <MoveRight className="w-4 h-4" />
             </Button>
           </div>
           <div className="px-3 py-1 md:px-6 md:py-4 gap-2 flex flex-col">
-            <p className="text-2xl">Growth</p>
+            <p className="text-2xl">Pro</p>
             <p className="text-sm text-muted-foreground">
               Our goal is to streamline SMB trade, making it easier and faster
               than ever for everyone and everywhere.
             </p>
             <p className="flex flex-col lg:flex-row lg:items-center gap-2 text-xl mt-8">
-              <span className="text-4xl">$40</span>
+              <span className="text-4xl">$9.99</span>
               <span className="text-sm text-muted-foreground"> / month</span>
             </p>
             <Button className="gap-4 mt-8">

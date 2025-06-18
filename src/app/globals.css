@@ -146,6 +146,9 @@ body {
   /* background-image: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.3), transparent); */
   background-image: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.5), rgba(120, 119, 198, 0.05), transparent);
 }
+.bandit {
+  color: #f73408;
+}
 .plus {
   width: 1.8rem;
   height: 1.8rem;

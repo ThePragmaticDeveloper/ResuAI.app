@@ -13,8 +13,8 @@ const HeroSection = () => {
   return (
     <Container>
     <Hero>
-     <Button variant="secondary" size="sm" className="gap-4 rounded-2xl glass">
-      <GiBandit className="w-4 h-4 bandit" />
+     <Button variant="secondary" size="sm" className="gap-2 rounded-2xl glass">
+      <GiBandit className="w-6 h-6 bandit" />
       <span className="w-max text-base">| New: Our AI integration</span>
       <MoveRight className="w-4 h-4" />
     </Button>
@@ -24,7 +24,7 @@ const HeroSection = () => {
     <HeroSubtitle>
     Gain a competitive edge in today's job market with AI-driven <br /> resumes that are strategically designed to bypass ATS algorithms <br /> and capture recruiters' attention.
     </HeroSubtitle>
-    <Button asChild size="lg" className="flex w-fit gap-0 py-6.5 px-8 mt-0 bg-gradient rounded-xl">
+    <Button asChild size="lg" className="flex primary-btn w-fit gap-0 py-6.5 px-8 mt-0 bg-gradient rounded-xl">
       <Link href="/dashboard/resumes" className="gap-0">
        <span className="text-lg">Create My Resume</span>
        <BiChevronRight className="w-6 h-6 icon p-0" />
