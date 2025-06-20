@@ -18,7 +18,7 @@ export default function ResumePreviewSection({resumeData, className}: ResumePrev
      <div className="flex w-full h-fit justify-center p-2 py-6">
         <ResumePreviewPaper
           resumeData={resumeData}
-          className="shadow-md max-w-3xl"
+          className="shadow-md max-w-2xl"
         />
       </div>
     </div>

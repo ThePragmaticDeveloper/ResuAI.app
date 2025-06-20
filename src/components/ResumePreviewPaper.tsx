@@ -10,7 +10,7 @@ interface ResumePreviewPaperProps {
   className?: string;
 }
 
-export default function ResumePreviewPaper({resumeData, className}: ResumePreviewPaperProps) {
+export default function ResumePreviewPaper({resumeData, className, contentRef}: ResumePreviewPaperProps) {
 
   const containerRef = useRef<HTMLDivElement>(null); // ✅ Correct type
   const { width } = useDimensions(containerRef);
@@ -26,7 +26,7 @@ export default function ResumePreviewPaper({resumeData, className}: ResumePrevie
         style={{
           zoom: (1 / 794) * width,
         }}
-        // ref={contentRef}
+        ref={contentRef}
         id="resumePreviewContent"
       >
        <PersonalInfoHeader resumeData={resumeData} />
