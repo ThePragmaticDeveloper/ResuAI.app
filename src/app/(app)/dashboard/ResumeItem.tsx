@@ -45,7 +45,7 @@ export default function ResumeItem({ resume }: ResumeItemProps) {
 
   return (
     <div className="group relative rounded-lg border border-transparent bg-secondary p-3 transition-colors hover:border-border">
-      <div className="space-y-3">
+      <div className="space-y-2">
         <Link
           href={`/editor?resumeId=${resume.id}`}
           className="inline-block w-full text-center"
@@ -56,8 +56,8 @@ export default function ResumeItem({ resume }: ResumeItemProps) {
           {resume.description && (
             <p className="line-clamp-2 text-sm">{resume.description}</p>
           )}
-          <p className="text-xs text-muted-foreground">
-            {wasUpdated ? "Updated" : "Created"} on{" "}
+          <p className="text-sm text-muted-foreground">
+            {wasUpdated ? "Updated" : "Created"}:{" "}
             {formatDate(resume.updatedAt, "MMM d, yyyy h:mm a")}
           </p>
         </Link>

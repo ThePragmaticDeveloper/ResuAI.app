@@ -26,7 +26,7 @@ export default async function ResumesPage() {
   ])
 
   return (
-    <div className="pt-20">
+    <div className="pt-16">
       <div className='flex items-center gap-2 mb-4'>
         <Image className="" src='/wave.png' alt='' width='22' height='22' />
         <h1>Hi, Ademola</h1>
