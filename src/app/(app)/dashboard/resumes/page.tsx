@@ -8,9 +8,10 @@ import Link from "next/link";
 import ResumeItem from "../ResumeItem";
 
 
-export default async function ResumesPage() {
+export default async function ResumesServerPage() {
 
   const {userId} = await auth();
+  const user = await currentUser();
 
   if(!userId) {
     return null;
@@ -25,12 +26,21 @@ export default async function ResumesPage() {
     prisma.resume.count({ where: { userId } }),
   ])
 
+  const capitalizeFirstLetter = (str: string | null | undefined): string => {
+    if (!str) {
+      return '';
+    }
+  return str.charAt(0).toUpperCase() + str.slice(1);
+  };
+
+  const userFirstName = capitalizeFirstLetter(user?.firstName) || 'Guest';
+
   return (
     <div className="pt-16">
       <div className='flex items-center gap-2 mb-4'>
         <Image className="" src='/wave.png' alt='' width='22' height='22' />
-        <h1>Hi, Ademola</h1>
-        
+        <h1>Hi, {userFirstName}</h1>
+
       </div>
 
       
