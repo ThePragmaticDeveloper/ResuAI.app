@@ -161,7 +161,7 @@ function DeleteConfirmationDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Delete resume?</DialogTitle>
+          <DialogTitle>Delete Resume?</DialogTitle>
           <DialogDescription>
             This will permanently delete this resume. This action cannot be
             undone.

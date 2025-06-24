@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import prisma from "@/lib/prisma";
 import { resumeDataInclude } from "@/lib/types";
-import { auth } from "@clerk/nextjs/server";
+import { auth, currentUser } from "@clerk/nextjs/server";
 import { Plus, PlusIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
