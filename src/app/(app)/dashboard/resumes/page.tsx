@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import prisma from "@/lib/prisma";
 import { resumeDataInclude } from "@/lib/types";
 import { auth } from "@clerk/nextjs/server";
-import { Plus } from "lucide-react";
+import { Plus, PlusIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import ResumeItem from "../ResumeItem";
@@ -34,10 +34,16 @@ export default async function ResumesPage() {
       </div>
 
       
-      <Button asChild className="rounded-lg mb-12" size="lg">
+      {/* <Button asChild className="rounded-lg mb-12" size="lg">
         <Link href="/editor" className="py-6">
           <Plus className="size-[1.6rem] mt-[-.2rem]" strokeWidth={1.5} />
           <span className="text-lg relative right-1">Create New Resume</span>
+        </Link>
+      </Button> */}
+
+      <Button className="py-5.5 rounded-lg mb-12">
+        <Link href="/editor" className="flex items-center gap-1 text-lg">
+        <PlusIcon className="size-[1.6rem] relative bottom-0.5" /> Create New Resume
         </Link>
       </Button>
 

@@ -83,7 +83,7 @@ function SummarySection({ resumeData }: ResumeSectionProps) {
   if (!summary) return null;
   
   return (
-    <div className="break-inside-avoid space-y-1">
+    <div className="space-y-1">
       <p className="text-3xl font-semibold">
         Professional Summary
       </p>

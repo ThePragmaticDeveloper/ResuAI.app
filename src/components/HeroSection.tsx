@@ -24,12 +24,17 @@ const HeroSection = () => {
     <HeroSubtitle>
     Gain a competitive edge in today's job market with AI-driven <br /> resumes that are strategically designed to bypass ATS algorithms <br /> and capture recruiters' attention.
     </HeroSubtitle>
-    <Button asChild size="lg" className="flex primary-btn w-fit gap-0 py-6.5 px-8 mt-0 bg-gradient rounded-xl">
+    
+    <Button asChild size="sm" className="primary-btn w-fit py-6 px-6 mt-0 bg-gradient rounded-xl">
       <Link href="/dashboard/resumes" className="gap-0">
-       <span className="text-lg">Create My Resume</span>
-       <BiChevronRight className="w-6 h-6 icon p-0" />
+       
+       <span className="w-max text-lg">Craft My Resume</span>
+       {/* <BiChevronRight className="w-6 h-6 icon p-0" /> */}
       </Link>
     </Button>
+    {/* <Button className="gap-4">
+      Craft My Resume <MoveRight className="w-4 h-4" />
+    </Button> */}
     </Hero>
    </Container>
   )

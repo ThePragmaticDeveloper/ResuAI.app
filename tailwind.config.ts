@@ -9,6 +9,14 @@ export default {
   ],
   theme: {
   	extend: {
+			fontSize: {
+        // Keep existing font sizes or define new ones if needed
+        // For example, if you want to keep the original text-base as 16px:
+        // 'base': ['16px', '24px'],
+
+        // Override text-lg to be 16px (and adjust line-height if desired)
+        'lg': ['16px', '24px'], // Original was '18px' with '28px' line-height (1.125rem / 1.75rem)
+      },
 			fontFamily: {
         sans: ["General Sans", "sans-serif"],
       },
