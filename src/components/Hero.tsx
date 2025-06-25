@@ -25,7 +25,7 @@ export const HeroSubtitle = ({children}: HeroElementProps) => {
 
 const Hero = ({children}: HeroProps) => {
   return (
-    <div className="flex text-center gap-1 items-center py-60 justify-center flex-col">
+    <div className="flex text-center gap-1 items-center pt-60 py-2 justify-center flex-col">
       {children}
     </div>
   )

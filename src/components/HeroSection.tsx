@@ -8,6 +8,7 @@ import { GiBandit } from 'react-icons/gi'
 import { MoveRight } from 'lucide-react'
 import Container from './Container'
 import Hero, { HeroSubtitle, HeroTitle } from './Hero'
+import Image from 'next/image'
 
 const HeroSection = () => {
   return (
@@ -36,6 +37,7 @@ const HeroSection = () => {
       Craft My Resume <MoveRight className="w-4 h-4" />
     </Button> */}
     </Hero>
+    <Image className="mx-auto" src='/resumeshot.png' alt='' width='600' height='600' />
    </Container>
   )
 }
