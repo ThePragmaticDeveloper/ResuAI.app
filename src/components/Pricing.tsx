@@ -27,7 +27,7 @@ export const Pricing = () => (
               <span className="text-4xl">Free</span>
               {/* <span className="text-sm text-muted-foreground"> / month</span> */}
             </p>
-            <Button variant="outline" className="gap-4 mt-8">
+            <Button variant="outline" className="btn-gradient gap-4 mt-8">
               Try it <MoveRight className="w-4 h-4" />
             </Button>
           </div>
@@ -41,7 +41,7 @@ export const Pricing = () => (
               <span className="text-4xl">$9.99</span>
               <span className="text-sm text-muted-foreground"> / month</span>
             </p>
-            <Button className="gap-4 mt-8">
+            <Button className="btn-gradient gap-4 mt-8">
               Try it <MoveRight className="w-4 h-4" />
             </Button>
           </div>

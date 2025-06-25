@@ -170,7 +170,7 @@ body {
   height: 1.8rem;
 }
 
-.bg-gradient {
+.btn-gradient {
   background: linear-gradient(195deg,hsl(263, 100%, 20%) 20%,rgba(0, 0, 0, .9) 80%),rgba(113,47,255,.12);
   /* background: linear-gradient(180deg,hsl(263, 100%, 20%) 0%,rgba(0, 0, 0, .9) 100%),rgba(113,47,255,.12); */
   /* position: relative; */

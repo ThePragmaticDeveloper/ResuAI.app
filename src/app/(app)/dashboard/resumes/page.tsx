@@ -51,11 +51,13 @@ export default async function ResumesServerPage() {
         </Link>
       </Button> */}
 
-      <Button className="py-5.5 rounded-lg mb-12">
+      <Button className="btn-gradient py-5.5 rounded-lg mb-12">
         <Link href="/editor" className="flex items-center gap-1 text-lg">
-        <PlusIcon className="size-[1.6rem] relative bottom-0.5" /> Create New Resume
+        Create New Resume
         </Link>
       </Button>
+
+      {/* <PlusIcon className="size-[1.6rem] relative bottom-0.5" />  */}
 
       <div className="space-y-1">
         <h1 className="text-2xl mb-6">Your Resumes: {totalCount}</h1>

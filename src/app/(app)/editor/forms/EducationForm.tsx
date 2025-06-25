@@ -123,7 +123,7 @@ export default function EducationForm({resumeData, setResumeData}: EditorFormPro
           <div className="flex">
           <Button
             type="button"
-            className="flex py-5.5 px-4 gap-0 items-center rounded-lg bg-gradient"
+            className="flex py-5.5 px-4 gap-0 items-center rounded-lg btn-gradient"
             onClick={() =>
               append({
                 degree: "",
@@ -133,8 +133,8 @@ export default function EducationForm({resumeData, setResumeData}: EditorFormPro
               })
             }
           >
-            <Plus className="plus relative right-1 bottom-[1px]" strokeWidth="1.5" />
-            <span className="text-[1rem] leading-tight relative right-1">Add Education</span>
+            {/* <Plus className="plus relative right-1 bottom-[1px]" strokeWidth="1.5" /> */}
+            <span className="text-[1rem] leading-tight">Add Education</span>
           </Button>
         </div>
         </form>
