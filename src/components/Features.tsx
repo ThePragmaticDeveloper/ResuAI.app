@@ -12,8 +12,8 @@ export const Features = () => (
           <h2 className="text-3xl text-center md:text-5xl tracking-tighter lg:max-w-xl font-regular">
             Something new!
           </h2>
-          <p className="text-lg max-w-xl lg:max-w-xl leading-relaxed tracking-tight text-muted-foreground">
-            Managing a small business today is already tough.
+          <p className="text-lg max-w-xl text-center lg:max-w-xl leading-relaxed tracking-tight text-muted-foreground">
+            Build your Resume the smart way.
           </p>
         </div>
         <div className="flex justify-center gap-10 pt-12 flex-col w-full">
@@ -23,7 +23,8 @@ export const Features = () => (
               <div className="flex flex-col gap-1">
                 <p className="text-left">Easy to use</p>
                 <p className="text-muted-foreground text-sm">
-                  We&apos;ve made it easy to use and understand.
+                  {/* Craft your application with a simple and intuitive interface. */}
+                  We&apos;ve made it easy intuitive & easy to use.
                 </p>
               </div>
             </div>
