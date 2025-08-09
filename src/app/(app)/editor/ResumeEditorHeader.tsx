@@ -25,7 +25,7 @@ export default function ResumeEditorHeader({isSaving, ShowSmResumePreview, setSh
           orientation="vertical"
           className="mr-1 data-[orientation=vertical]:h-4"
         />
-        <TitleForm />
+        {/* <TitleForm /> */}
         <Button
           variant="outline"
           size="icon"

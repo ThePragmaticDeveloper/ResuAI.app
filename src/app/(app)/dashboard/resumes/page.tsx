@@ -58,15 +58,25 @@ export default async function ResumesServerPage() {
       </Button>
 
       {/* <PlusIcon className="size-[1.6rem] relative bottom-0.5" />  */}
+      
 
-      <div className="space-y-1">
-        <h1 className="text-2xl mb-6">Your Resumes: {totalCount}</h1>
-      </div>
-      <div className="flex w-full grid-cols-2 flex-col gap-3 sm:grid md:grid-cols-3 lg:grid-cols-6">
-        {resumes.map((resume) => (
-          <ResumeItem key={resume.id} resume={resume} />
-        ))}
-      </div>
+      
+      {totalCount > 0 ? (
+        <>
+         <div className="space-y-1">
+         <h1 className="text-2xl mb-6">Your Resumes: {totalCount}</h1>
+          </div>
+          <div className="flex w-full grid-cols-2 flex-col gap-3 sm:grid md:grid-cols-3 lg:grid-cols-6">
+            {resumes.map((resume) => (
+              <ResumeItem key={resume.id} resume={resume} />
+            ))}
+          </div>
+        </>
+      ) : (
+        <Image src='/resume-folder.svg' alt="My SVG" width={120} height={120} />
+      )
+        
+      }
     </div>
   )
 }
