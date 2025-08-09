@@ -6,10 +6,11 @@ export interface EditorFormProps {
   setResumeData: React.Dispatch<React.SetStateAction<ResumeValues>>;
 }
 
+// Remove personalInfo since it's not a separate relation in your schema
 export const resumeDataInclude = {
   workExperiences: true,
   educations: true,
-} satisfies Prisma.ResumeInclude;
+};
 
 export type ResumeServerData = Prisma.ResumeGetPayload<{
   include: typeof resumeDataInclude;

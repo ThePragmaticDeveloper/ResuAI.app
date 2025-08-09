@@ -1,12 +1,11 @@
+// ./src/app/(app)/dashboard/resumes/page.tsx
 import { Button } from "@/components/ui/button";
 import prisma from "@/lib/prisma";
 import { resumeDataInclude, ResumeServerData } from "@/lib/types";
 import { auth, currentUser } from "@clerk/nextjs/server";
-import { Plus, PlusIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import ResumeItem from "../ResumeItem";
-
 
 export default async function ResumesServerPage() {
 
@@ -40,27 +39,13 @@ export default async function ResumesServerPage() {
       <div className='flex items-center gap-2 mb-4'>
         <Image className="" src='/wave.png' alt='' width='22' height='22' />
         <h1>Hi, {userFirstName}</h1>
-
       </div>
-
-      
-      {/* <Button asChild className="rounded-lg mb-12" size="lg">
-        <Link href="/editor" className="py-6">
-          <Plus className="size-[1.6rem] mt-[-.2rem]" strokeWidth={1.5} />
-          <span className="text-lg relative right-1">Create New Resume</span>
-        </Link>
-      </Button> */}
-
       <Button className="btn-gradient py-5.5 rounded-lg mb-12">
         <Link href="/editor" className="flex items-center gap-1 text-lg">
         Create New Resume
         </Link>
       </Button>
 
-      {/* <PlusIcon className="size-[1.6rem] relative bottom-0.5" />  */}
-      
-
-      
       {totalCount > 0 ? (
         <>
          <div className="space-y-1">
@@ -74,9 +59,7 @@ export default async function ResumesServerPage() {
         </>
       ) : (
         <Image src='/resume-folder.svg' alt="My SVG" width={120} height={120} />
-      )
-        
-      }
+      )}
     </div>
   )
 }
