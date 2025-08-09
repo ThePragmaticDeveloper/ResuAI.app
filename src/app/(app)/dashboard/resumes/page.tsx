@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import prisma from "@/lib/prisma";
-import { resumeDataInclude } from "@/lib/types";
+import { resumeDataInclude, ResumeServerData } from "@/lib/types";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { Plus, PlusIcon } from "lucide-react";
 import Image from "next/image";
@@ -67,7 +67,7 @@ export default async function ResumesServerPage() {
          <h1 className="text-2xl mb-6">Your Resumes: {totalCount}</h1>
           </div>
           <div className="flex w-full grid-cols-2 flex-col gap-3 sm:grid md:grid-cols-3 lg:grid-cols-6">
-            {resumes.map((resume) => (
+            {resumes.map((resume: ResumeServerData) => (
               <ResumeItem key={resume.id} resume={resume} />
             ))}
           </div>
