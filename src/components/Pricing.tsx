@@ -1,6 +1,7 @@
 import { Check, Minus, MoveRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export const Pricing = () => (
   <div className="w-full py-20 lg:py-40">
@@ -27,8 +28,10 @@ export const Pricing = () => (
               <span className="text-4xl">Free</span>
               {/* <span className="text-sm text-muted-foreground"> / month</span> */}
             </p>
-            <Button variant="outline" className="btn-gradient gap-4 mt-8">
-              Try it <MoveRight className="w-4 h-4" />
+            <Button asChild variant="outline" className="btn-gradient gap-4 mt-8">
+             <Link href="/dashboard/resumes">
+              Get Started <MoveRight className="w-4 h-4" />
+             </Link>
             </Button>
           </div>
           <div className="px-3 py-1 md:px-6 md:py-4 gap-2 flex flex-col">
@@ -42,7 +45,7 @@ export const Pricing = () => (
               <span className="text-sm text-muted-foreground"> / month</span>
             </p>
             <Button className="btn-gradient gap-4 mt-8">
-              Try it <MoveRight className="w-4 h-4" />
+              Go Pro <MoveRight className="w-4 h-4" />
             </Button>
           </div>
           <div className="px-3 lg:px-6 col-span-2 lg:col-span-1 py-4">
