@@ -7,30 +7,30 @@ export const Footer = () => {
       href: '/',
       description: '',
     },
+    // {
+    //   title: 'Product',
+    //   description: 'Managing a small business today is already tough.',
+    //   items: [
+    //     {
+    //       title: 'Reports',
+    //       href: '/reports',
+    //     },
+    //     {
+    //       title: 'Statistics',
+    //       href: '/statistics',
+    //     },
+    //     {
+    //       title: 'Dashboards',
+    //       href: '/dashboards',
+    //     },
+    //     {
+    //       title: 'Recordings',
+    //       href: '/recordings',
+    //     },
+    //   ],
+    // },
     {
-      title: 'Product',
-      description: 'Managing a small business today is already tough.',
-      items: [
-        {
-          title: 'Reports',
-          href: '/reports',
-        },
-        {
-          title: 'Statistics',
-          href: '/statistics',
-        },
-        {
-          title: 'Dashboards',
-          href: '/dashboards',
-        },
-        {
-          title: 'Recordings',
-          href: '/recordings',
-        },
-      ],
-    },
-    {
-      title: 'Company',
+      title: 'ResuAI',
       description: 'Managing a small business today is already tough.',
       items: [
         {
@@ -38,15 +38,15 @@ export const Footer = () => {
           href: '/about',
         },
         {
-          title: 'Fundraising',
+          title: 'Features',
           href: '/fundraising',
         },
         {
-          title: 'Investors',
+          title: 'Pricing',
           href: '/investors',
         },
         {
-          title: 'Contact us',
+          title: 'Stories',
           href: '/contact',
         },
       ],
