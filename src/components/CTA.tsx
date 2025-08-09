@@ -20,7 +20,6 @@ export const CTA = () => (
         </div>
         <Button asChild size="sm" className="btn-gradient text-lg w-fit p-6 mt-4 rounded-xl">
           <Link href="/dashboard/resumes">
-           
            Craft My Resume
           </Link>
         </Button>

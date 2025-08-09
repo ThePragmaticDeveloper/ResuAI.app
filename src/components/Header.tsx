@@ -9,9 +9,9 @@ import { BiMenuAltRight, BiX } from "react-icons/bi";
 
 export const Header = () => {
   const navigationItems = [
-    { title: "About", href: "/about" },
-    { title: "Services", href: "/services" },
-    { title: "Blog", href: "/blog" },
+    { title: "Features", href: "/about" },
+    { title: "Pricing", href: "/services" },
+    // { title: "Blog", href: "/blog" },
     { title: "Stories", href: "/stories" },
   ];
 
@@ -46,11 +46,23 @@ export const Header = () => {
 
         {/* Desktop Authentication */}
         <div className="hidden lg:flex items-center gap-2 border-none">
-          <Button variant="outline" className="border-none py-2 text-sm bg-transparent">
+          {/* <Button variant="outline" className="border-none py-2 text-sm bg-transparent">
            <IoIosFingerPrint className="icon" />
             Sign In
-          </Button>
+          </Button> */}
+          <Button asChild variant="outline" className="border-none py-2 text-sm bg-transparent">
+          <Link href="/dashboard/resumes">
+           <IoIosFingerPrint className="icon" />
+           Sign In
+          </Link>
+        </Button>
         </div>
+
+        {/* <Button asChild size="sm" className="btn-gradient text-lg w-fit p-6 mt-4 rounded-xl">
+          <Link href="/dashboard/resumes">
+           Craft My Resume
+          </Link>
+        </Button> */}
       </div>
 
       {/* Mobile Menu */}

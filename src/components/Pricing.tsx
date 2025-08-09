@@ -21,8 +21,7 @@ export const Pricing = () => (
           <div className="px-3 py-1 md:px-6 md:py-4 gap-2 flex flex-col">
             <p className="text-2xl">Basic</p>
             <p className="text-sm text-muted-foreground">
-              Our goal is to streamline SMB trade, making it easier and faster
-              than ever for everyone and everywhere.
+              This basic plan gets you started with the essentials with no cost. Create your first resume and get a feel for the platform.
             </p>
             <p className="flex flex-col lg:flex-row lg:items-center gap-2 text-xl mt-8">
               <span className="text-4xl">Free</span>
@@ -37,8 +36,7 @@ export const Pricing = () => (
           <div className="px-3 py-1 md:px-6 md:py-4 gap-2 flex flex-col">
             <p className="text-2xl">Pro</p>
             <p className="text-sm text-muted-foreground">
-              Our goal is to streamline SMB trade, making it easier and faster
-              than ever for everyone and everywhere.
+              Get access to all the features and templates, plus AI-powered resume and cover letter generation.
             </p>
             <p className="flex flex-col lg:flex-row lg:items-center gap-2 text-xl mt-8">
               <span className="text-4xl">$9.99</span>
@@ -54,7 +52,15 @@ export const Pricing = () => (
           <div></div>
           <div></div>
           {/* New Line */}
-          <div className="text-lg px-3 lg:px-6 col-span-2 lg:col-span-1 py-4">SSO</div>
+          <div className="text-lg px-3 lg:px-6 col-span-2 lg:col-span-1 py-4">ATS-Friendly Design</div>
+          <div className="px-3 py-1 md:px-6 md:py-4 flex justify-center">
+            <Check className="w-4 h-4 text-green-800" />
+          </div>
+          <div className="px-3 py-1 md:px-6 md:py-4 flex justify-center">
+            <Check className="w-4 h-4 text-green-800" />
+          </div>
+          {/* New Line */}
+          <div className="text-lg px-3 lg:px-6 col-span-2 lg:col-span-1 py-4">Resume Parser</div>
           <div className="px-3 py-1 md:px-6 md:py-4 flex justify-center">
             <Check className="w-4 h-4 text-green-800" />
           </div>
@@ -63,7 +69,7 @@ export const Pricing = () => (
           </div>
           {/* New Line */}
           <div className="text-lg px-3 lg:px-6 col-span-2 lg:col-span-1 py-4">
-            AI Assistant
+            AI Interview
           </div>
           <div className="px-3 py-1 md:px-6 md:py-4 flex justify-center">
             <Minus className="w-4 h-4 text-muted-foreground" />
@@ -73,7 +79,7 @@ export const Pricing = () => (
           </div>
           {/* New Line */}
           <div className="text-lg px-3 lg:px-6 col-span-2 lg:col-span-1 py-4">
-            Version Control
+            AI Cover Letter
           </div>
           <div className="px-3 py-1 md:px-6 md:py-4 flex justify-center">
             <Minus className="w-4 h-4 text-muted-foreground" />
@@ -83,17 +89,17 @@ export const Pricing = () => (
           </div>
           {/* New Line */}
           <div className="text-lg px-3 lg:px-6 col-span-2 lg:col-span-1 py-4">
-            Members
+            Resumes
           </div>
           <div className="px-3 py-1 md:px-6 md:py-4 flex justify-center">
-            <p className="text-muted-foreground text-sm">5 members</p>
+            <p className="text-muted-foreground text-sm">5 Resumes</p>
           </div>
           <div className="px-3 py-1 md:px-6 md:py-4 flex justify-center">
-            <p className="text-muted-foreground text-sm">25 members</p>
+            <p className="text-muted-foreground text-sm">Unlimited</p>
           </div>
           {/* New Line */}
           <div className="text-lg px-3 lg:px-6 col-span-2 lg:col-span-1 py-4">
-            Multiplayer Mode
+            Premium Templates
           </div>
           <div className="px-3 py-1 md:px-6 md:py-4 flex justify-center">
             <Minus className="w-4 h-4 text-muted-foreground" />
@@ -103,7 +109,7 @@ export const Pricing = () => (
           </div>
           {/* New Line */}
           <div className="text-lg px-3 lg:px-6 col-span-2 lg:col-span-1 py-4">
-            Orchestration
+            Unlimited Resumes
           </div>
           <div className="px-3 py-1 md:px-6 md:py-4 flex justify-center">
             <Minus className="w-4 h-4 text-muted-foreground" />

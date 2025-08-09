@@ -1,10 +1,11 @@
+import Image from "next/image";
 
 
 export default function InterviewsPage() {
   
   return (
     <div>
-      This is the Interviews Page.
+      <Image src='/interview.svg' alt="My SVG" width={300} height={300} />
     </div>
   )
 }
