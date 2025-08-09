@@ -31,17 +31,13 @@ import {
 } from "@/components/ui/sidebar"
 import ClerkUserButton from "@/app/(app)/ClerkUserButton"
 import ClerkUserButtonWrapper from "@/app/(app)/ClerkUserButtonWrapper"
+import { currentUser } from "@clerk/nextjs/server"
 
-export function NavUser({
-  user,
-}: {
-  user: {
-    name: string
-    email: string
-    avatar: string
-  }
-}) {
+export async function NavUser() {
   const { isMobile } = useSidebar()
+
+  // const {userId} = await auth();
+  const user = await currentUser();
 
   return (
     <SidebarMenu>
@@ -58,8 +54,10 @@ export function NavUser({
               </Avatar> */}
               <ClerkUserButtonWrapper />
               <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-medium">{user.name}</span>
-                <span className="truncate text-xs">{user.email}</span>
+                <span className="truncate font-medium">{user?.firstName}</span>
+                <span className="truncate text-xs">
+                  {user?.emailAddresses?.[0]?.emailAddress ?? ""}
+                </span>
               </div>
               <ChevronsUpDown className="ml-auto size-4" />
             </SidebarMenuButton>
@@ -73,12 +71,12 @@ export function NavUser({
             <DropdownMenuLabel className="p-0 font-normal">
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-lg">
                 <Avatar className="h-8 w-8 rounded-lg">
-                  <AvatarImage src={user.avatar} alt={user.name} />
+                  <AvatarImage src={user?.imageUrl} alt={user?.firstName ?? undefined} />
                   <AvatarFallback className="rounded-lg">CN</AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-lg leading-tight">
-                  <span className="truncate font-medium">{user.name}</span>
-                  <span className="truncate text-sm">{user.email}</span>
+                  <span className="truncate font-medium">{user?.firstName}</span>
+                  <span className="truncate text-sm">{user?.emailAddresses?.[0]?.emailAddress ?? ""}</span>
                 </div>
               </div>
             </DropdownMenuLabel>

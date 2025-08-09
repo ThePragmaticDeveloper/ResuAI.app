@@ -223,7 +223,7 @@ export function EditorSidebar({ currentStep, setCurrentStep, ...props }: EditorS
         {/* <NavProjects projects={data.projects} /> */}
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <NavUser />
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>
