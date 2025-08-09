@@ -12,7 +12,7 @@ export const Pricing = () => (
             Prices that make sense!
           </h2>
           <p className="text-lg leading-relaxed tracking-tight text-muted-foreground max-w-xl text-center">
-            Managing a small business today is already tough.
+            Rich in features, not in pricing.
           </p>
         </div>
         <div className="grid text-left w-full grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 divide-x pt-20"> {/* Adjusted grid-cols */}

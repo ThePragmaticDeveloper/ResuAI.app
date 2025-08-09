@@ -157,6 +157,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  /* color: rgb(9, 9, 11); */
+  /* color: #191567; */
 }
 .bg--gradient {
   /* background-image: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.3), transparent); */

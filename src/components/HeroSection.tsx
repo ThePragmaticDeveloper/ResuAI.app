@@ -30,7 +30,6 @@ const HeroSection = () => {
       <Link href="/dashboard/resumes">
        
        Craft My Resume
-       {/* <BiChevronRight className="w-6 h-6 icon p-0" /> */}
       </Link>
     </Button>
     {/* <Button className="gap-4">
