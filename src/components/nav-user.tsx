@@ -1,4 +1,3 @@
-"use client"
 
 import {
   BadgeCheck,
@@ -29,15 +28,12 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar"
-import ClerkUserButton from "@/app/(app)/ClerkUserButton"
 import ClerkUserButtonWrapper from "@/app/(app)/ClerkUserButtonWrapper"
-import { currentUser } from "@clerk/nextjs/server"
+import { useUser } from "@clerk/nextjs"
 
-export async function NavUser() {
+export function NavUser() {
   const { isMobile } = useSidebar()
-
-  // const {userId} = await auth();
-  const user = await currentUser();
+  const { user } = useUser()
 
   return (
     <SidebarMenu>
