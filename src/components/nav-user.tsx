@@ -35,6 +35,15 @@ export function NavUser() {
   const { isMobile } = useSidebar()
   const { user } = useUser()
 
+  const capitalizeFirstLetter = (str: string | null | undefined): string => {
+    if (!str) {
+      return '';
+    }
+  return str.charAt(0).toUpperCase() + str.slice(1);
+  };
+
+  const userFirstName = capitalizeFirstLetter(user?.firstName) || 'Guest';
+
   return (
     <SidebarMenu>
       <SidebarMenuItem>
@@ -50,7 +59,7 @@ export function NavUser() {
               </Avatar> */}
               <ClerkUserButtonWrapper />
               <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-medium">{user?.firstName}</span>
+                <span className="truncate font-medium">{userFirstName}</span>
                 <span className="truncate text-xs">
                   {user?.emailAddresses?.[0]?.emailAddress ?? ""}
                 </span>
@@ -67,11 +76,11 @@ export function NavUser() {
             <DropdownMenuLabel className="p-0 font-normal">
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-lg">
                 <Avatar className="h-8 w-8 rounded-lg">
-                  <AvatarImage src={user?.imageUrl} alt={user?.firstName ?? undefined} />
+                  <AvatarImage src={user?.imageUrl} alt={userFirstName} />
                   <AvatarFallback className="rounded-lg">CN</AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-lg leading-tight">
-                  <span className="truncate font-medium">{user?.firstName}</span>
+                  <span className="truncate font-medium">{userFirstName}</span>
                   <span className="truncate text-sm">{user?.emailAddresses?.[0]?.emailAddress ?? ""}</span>
                 </div>
               </div>

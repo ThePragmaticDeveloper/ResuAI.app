@@ -60,7 +60,7 @@ export const Footer = () => {
           <div className='flex gap-8 flex-col items-start'>
             <div className='flex gap-2 flex-col'>
               <h2 className='text-3xl md:text-5xl tracking-tighter max-w-xl font-regular text-left'>
-                ResuAI™
+                ResuAI
               </h2>
               <p className='text-lg max-w-lg leading-relaxed tracking-tight text-left'>
                 Build your Resume the smart way.
